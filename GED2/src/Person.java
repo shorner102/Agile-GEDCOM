@@ -1,7 +1,7 @@
 
 public class Person {
 	String id;
-	String Name;
+	String name;
 	char gender;
 	String birthday;
 	int age;
@@ -13,6 +13,18 @@ public class Person {
 	public Person() {
 		
 	}
+	
+	public Person(String id, String name, char gender, String birthday, int age, boolean alive, String death, String child, String spouse) {
+		this.id = id;
+		this.name = name;
+		this.gender = gender;
+		this.birthday = birthday;
+		this.age = age;
+		this.alive = alive;
+		this.death = death;
+		this.child = child;
+		this.spouse = spouse;
+	}
 
 	public String getId() {
 		return id;
@@ -23,11 +35,11 @@ public class Person {
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public char getGender() {
