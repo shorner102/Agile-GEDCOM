@@ -60,12 +60,28 @@ public class GEDInAndOut {
 					people[personCounter].setDeath(parsedTags.get(i + 1).getArgs());
 					people[personCounter].setAlive(false);
 				}
+				else if(parsedTags.get(i).getTagName().equals("FAM")) 
+					families[++familyCounter] = new Family(parsedTags.get(i).getArgs());
+				
+				else if(parsedTags.get(i).getTagName().equals("HUSB")) {
+					families[familyCounter].setHusbandID(parsedTags.get(i).getArgs());
+				}
+				else if(parsedTags.get(i).getTagName().equals("WIFE")) 
+					families[familyCounter].setWifeID(parsedTags.get(i).getArgs());
+				else if(parsedTags.get(i).getTagName().equals("CHIL")) 
+					families[familyCounter].addChild(parsedTags.get(i).getArgs());
+
+				//System.out.println(parsedTags.get(i));
 				
 			}
 				
 		}
-		for(int i = 0; i < people.length; i++) {
+		/*for(int i = 0; i < people.length; i++) {
 			System.out.println(people[i]);
+		}*/
+		
+		for(int i = 0; i < families.length; i++) {
+			System.out.println(families[i]);
 		}
 		
 		
