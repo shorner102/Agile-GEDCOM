@@ -9,6 +9,7 @@ public class Family {
 	String wifeID;
 	String wifeName;
 	ArrayList<Person> children;
+	int x;
 	
 	public Family() {
 		
