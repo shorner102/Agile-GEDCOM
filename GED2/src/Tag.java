@@ -5,7 +5,16 @@ public class Tag {
 	String tagName;
 	boolean special;
 	String args;
+	boolean valid;
 	
+	public boolean isValid() {
+		return valid;
+	}
+
+	public void setValid(boolean valid) {
+		this.valid = valid;
+	}
+
 	public Tag(int l, String t, boolean s) {
 		level = l;
 		tagName = t;
@@ -59,7 +68,13 @@ public class Tag {
 	}
 	
 	public String toString() {
-		return level + " " + tagName;
+		String str = "";
+		str += "<--" + getLevel() + "|" + getTagName() + "|" ;
+		if(isValid()) str += "Y";
+		else str += "N";
+		if(hasArgs())
+			str += "|" + getArgs();
+		return str;
 	}
 	
 }

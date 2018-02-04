@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GEDInAndOut {
@@ -10,8 +11,15 @@ public class GEDInAndOut {
 
 	
 	public static void main(String[] args) {
-		String fileName = "proj02test.ged";
-		//String fileName = "Sydni_Horner-Project1.ged";
+		//String fileName = "proj02test.ged";
+		String fileName = "Sydni_Horner-Project1.ged";
+		
+		ArrayList<Tag> parsedTags = new ArrayList<Tag>();
+		Family[] families = new Family[1000];
+		Person[] people = new Person[5000];
+		int familyCounter = -1;
+		int personCounter = -1;
+		
 		String line = null;
 		try {
 			FileReader fileReader = new FileReader(fileName);
@@ -23,14 +31,12 @@ public class GEDInAndOut {
 			Tag tag;
 
 			while ((line = bufferedReader.readLine()) != null) {
-				System.out.println("-->" + line);
+				//System.out.println("-->" + line);
 				level = getLevel(line);
 				tag = getTag(line, level);
-				System.out.print("<--" + level + "|" + tag.getTagName() + "|" + getValid(tag));
-				if(tag.hasArgs())
-					System.out.println("|" + tag.getArgs());
-				else
-					System.out.println();
+				tag.setValid(getValid(tag));
+				//System.out.println(tag);
+				parsedTags.add(tag);
 			}
 
 			bufferedReader.close();
@@ -40,6 +46,30 @@ public class GEDInAndOut {
 			System.out.println("Error reading file '" + fileName + "'");
 
 		}
+		for(int i = 0; i < parsedTags.size(); i++) {
+			if(parsedTags.get(i).isValid()) {
+				if(parsedTags.get(i).getTagName().equals("INDI"))
+					people[++personCounter] = new Person(parsedTags.get(i).getArgs());
+				else if(parsedTags.get(i).getTagName().equals("NAME"))
+					people[personCounter].setName(parsedTags.get(i).getArgs());
+				else if(parsedTags.get(i).getTagName().equals("SEX"))
+					people[personCounter].setGender(parsedTags.get(i).getArgs());
+				else if(parsedTags.get(i).getTagName().equals("BIRT"))
+					people[personCounter].setBirthday(parsedTags.get(i + 1).getArgs());
+				else if(parsedTags.get(i).getTagName().equals("DEAT")) {
+					people[personCounter].setDeath(parsedTags.get(i + 1).getArgs());
+					people[personCounter].setAlive(true);
+				}
+				
+			}
+				
+		}
+		for(int i = 0; i < people.length; i++) {
+			System.out.println(people[i]);
+		}
+		
+		
+		
 	}
 
 	public static int getLevel(String line) {
@@ -48,7 +78,7 @@ public class GEDInAndOut {
 
 	public static Tag getTag(String line, int level) {
 		int count = 2;
-		if(Character.isLowerCase(line.charAt(2))) {
+		if(Character.isLowerCase(line.charAt(2)) || line.charAt(2) == '@') {
 			return specialCaseTag(line, level);
 		}
 		while (line.length() > count && line.charAt(count) != ' ')
@@ -58,7 +88,7 @@ public class GEDInAndOut {
 		return new Tag(level, line.substring(2, count), false);
 	}
 
-	public static String getValid(Tag tag) {
+	public static boolean getValid(Tag tag) {
 		
 		boolean valid = false;
 		
@@ -68,8 +98,7 @@ public class GEDInAndOut {
 				break;
 			}
 		}
-		if(valid) return "Y";
-		else return "N";
+		return valid;
 	}
 	
 	public static Tag specialCaseTag(String line, int level) {

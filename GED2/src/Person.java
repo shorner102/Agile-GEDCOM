@@ -2,7 +2,7 @@
 public class Person {
 	String id;
 	String name;
-	char gender;
+	String gender;
 	String birthday;
 	int age;
 	boolean alive;
@@ -12,9 +12,12 @@ public class Person {
 	
 	public Person() {
 		
+	}	
+	public Person(String id) {
+		this.id = id;
 	}
 	
-	public Person(String id, String name, char gender, String birthday, int age, boolean alive, String death, String child, String spouse) {
+	public Person(String id, String name, String gender, String birthday, int age, boolean alive, String death, String child, String spouse) {
 		this.id = id;
 		this.name = name;
 		this.gender = gender;
@@ -42,11 +45,11 @@ public class Person {
 		this.name = name;
 	}
 
-	public char getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(char gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
@@ -97,4 +100,10 @@ public class Person {
 	public void setSpouse(String spouse) {
 		this.spouse = spouse;
 	}
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", name=" + name + ", gender=" + gender + ", birthday=" + birthday + ", age=" + age
+				+ ", alive=" + alive + ", death=" + death + ", child=" + child + ", spouse=" + spouse + "]";
+	}
+	
 }
