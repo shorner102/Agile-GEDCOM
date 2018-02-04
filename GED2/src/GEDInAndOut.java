@@ -58,7 +58,7 @@ public class GEDInAndOut {
 					people[personCounter].setBirthday(parsedTags.get(i + 1).getArgs());
 				else if(parsedTags.get(i).getTagName().equals("DEAT")) {
 					people[personCounter].setDeath(parsedTags.get(i + 1).getArgs());
-					people[personCounter].setAlive(true);
+					people[personCounter].setAlive(false);
 				}
 				
 			}

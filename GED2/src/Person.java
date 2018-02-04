@@ -15,6 +15,7 @@ public class Person {
 	}	
 	public Person(String id) {
 		this.id = id;
+		alive = true;
 	}
 	
 	public Person(String id, String name, String gender, String birthday, int age, boolean alive, String death, String child, String spouse) {
