@@ -8,13 +8,20 @@ public class Family {
 	String husbandName;
 	String wifeID;
 	String wifeName;
-	ArrayList<Person> children;
-	
+	ArrayList<String> children;
+
 	public Family() {
-		
+
 	}
+
+	public Family(String id) {
+		this.id = id;
+		children = new ArrayList<String>();
+	}
+
 	
-	public Family(String id, String married, String divorced, Person husband, Person wife, ArrayList<Person> children) {
+
+	public Family(String id, String married, String divorced, Person husband, Person wife, ArrayList<String> children) {
 		this.id = id;
 		this.married = married;
 		this.divorced = divorced;
@@ -22,8 +29,8 @@ public class Family {
 		this.husbandName = husband.getName();
 		this.wifeID = wife.getId();
 		this.wifeName = wife.getName();
-		this.children = new ArrayList<Person>();
-		for(int i = 0 ; i < children.size(); i++) {
+		this.children = new ArrayList<String>();
+		for (int i = 0; i < children.size(); i++) {
 			this.children.add(children.get(i));
 		}
 	}
@@ -84,11 +91,22 @@ public class Family {
 		this.wifeName = wifeName;
 	}
 
-	public ArrayList<Person> getChildren() {
+	public ArrayList<String> getChildren() {
 		return children;
 	}
 
-	public void setChildren(ArrayList<Person> children) {
+	public void setChildren(ArrayList<String> children) {
 		this.children = children;
+	}
+	
+	public void addChild(String id) {
+		children.add(id);
+	}
+	
+	@Override
+	public String toString() {
+		return "Family [id=" + id + ", married=" + married + ", divorced=" + divorced + ", husbandID=" + husbandID
+				+ ", husbandName=" + husbandName + ", wifeID=" + wifeID + ", wifeName=" + wifeName + ", children="
+				+ children + "]";
 	}
 }
