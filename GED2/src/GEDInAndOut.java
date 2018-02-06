@@ -77,17 +77,47 @@ public class GEDInAndOut {
 			}
 				
 		}
-		/*for(int i = 0; i < people.length; i++) {
-			System.out.println(people[i]);
-		}*/
 		
-		for(int i = 0; i < families.length; i++) {
-			System.out.println(families[i]);
-		}
+		printPeople(people);
 		
+		printFamilies(families);
+
 		
 		
 	}
+	
+	public static void printPeople(Person[] people) {
+		System.out.println("Individuals");
+		System.out.println("+-------+--------------------------------+--------+-----------------+-----+-------+-----------------+------------+------------+");
+		System.out.println("|  ID   |             Name               | Gender |    Birthday     | Age | Alive |      Death      |   Child    |    Spouse  |");
+		System.out.println("+-------+--------------------------------+--------+-----------------+-----+-------+-----------------+------------+------------+");
+		
+
+		for(int i = 0; i < people.length; i++) {
+			if(people[i] != null)
+				System.out.format("| %5s | %30s | %6s | %15s | %3d | %5s | %15s | %10s | %10s |\n", people[i].getId() , people[i].getName(), people[i].getGender(), people[i].getBirthday() , people[i].getAge() , people[i].isAlive() ,  people[i].getDeath(), people[i].getChild() , people[i].getSpouse());
+				
+		}
+		System.out.println("+-------+--------------------------------+--------+-----------------+-----+-------+-----------------+------------+------------+");
+		
+	}
+	
+	public static void printFamilies(Family[] families) {
+		
+		System.out.println("Families");
+		System.out.println("+-------+-----------------+-----------------+------------+--------------------------------+------------+--------------------------------+--------------------------------+");
+		System.out.println("|  ID   |     Married     |     Divorced    | Husband ID |          Husband Name          |   Wife ID  |             Wife Name          |             Children           |");
+		System.out.println("+-------+-----------------+-----------------+------------+--------------------------------+------------+--------------------------------+--------------------------------+");
+		
+		for(int i = 0; i < families.length; i++) {
+			if(families[i] != null)
+				System.out.format("| %5s | %15s | %15s | %10s | %30s | %10s | %30s | %30s |\n", families[i].getId() , families[i].getMarried(),families[i].getDivorced() , families[i].getHusbandID(),families[i].getHusbandName() , families[i].getWifeID(),families[i].getWifeName(),families[i].getChildren());
+			
+		}
+
+		System.out.println("+-------+-----------------+-----------------+------------+--------------------------------+------------+--------------------------------+--------------------------------+");
+	}
+	
 
 	public static int getLevel(String line) {
 		return Character.getNumericValue(line.charAt(0));

@@ -111,20 +111,5 @@ public class Family {
 	}*/
 	
 	
-	public static void main (String[] args) {
-		System.out.println("Individuals");
-		System.out.println("+------+---------------------+------------+----------------+-------+-----------+-------------+----------------+---------------+");
-		System.out.println("|  ID  |        Name         |   Gender   |    Birthday    |  Age  |   Alive   |    Death    |     Child      |     Spouse    |");
-		System.out.println("+------+---------------------+------------+----------------+-------+-----------+-------------+----------------+---------------+");
-		//System.out.println("|  " + id + "  |        " + name + "         |   " + gender + "   |    " + birthday + "    |  " + age + "  |   " + alive + "   |    " + death + "    |     " + children + "      |     " + spouse + "    |");
-		System.out.println("+------+---------------------+------------+----------------+-------+-----------+-------------+----------------+---------------+");
-		System.out.println(" ");
-		System.out.println("Families");
-		System.out.println("+------+---------------+----------------+---------------+------------------+-------------+-----------------+-----------------+");
-		System.out.println("|  ID  |    Married    |    Divorced    |   Husband ID  |   Husband Name   |   Wife ID   |    Wife Name    |     Children    |");
-		System.out.println("+------+---------------+----------------+---------------+------------------+-------------+-----------------+-----------------+");
-		//System.out.println("|  " + id + "  |    " + married + "    |    " + divorced + "   |   " + husbandID + "  |   " + husbandName + "   |   " + wifeID + "   |    " + wifeName + "    |     " + children + "    |");
-		System.out.println(" ");
-		System.out.println("+------+---------------+----------------+---------------+------------------+-------------+-----------------+-----------------+");
-	}
+
 }
