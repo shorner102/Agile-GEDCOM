@@ -111,36 +111,5 @@ public class Family {
 	}*/
 	
 	
-	public static void main (String[] args) {
-		//read in the file
-		//parse through the lines
-		//fp = filepath (should be each line)
-		
-		System.out.println("Individuals");
-		System.out.println("+------+---------------------+------------+----------------+-------+-----------+-------------+----------------+---------------+");
-		System.out.println("|  ID  |        Name         |   Gender   |    Birthday    |  Age  |   Alive   |    Death    |     Child      |     Spouse    |");
-		System.out.println("+------+---------------------+------------+----------------+-------+-----------+-------------+----------------+---------------+");
-		
-		/*for(int i = 1; i <= fp.length; i++) {
-			System.out.println("|  " + id + "  |        " + name + "         |   " + gender + "   |    " + birthday + "    |  " + age + "  |   " + alive + "   |    " + death + "    |     " + children + "      |     " + spouse + "    |");
-			i++;
-		}*/
-		
-		//System.out.println("|  " + id + "  |        " + name + "         |   " + gender + "   |    " + birthday + "    |  " + age + "  |   " + alive + "   |    " + death + "    |     " + children + "      |     " + spouse + "    |");
-		System.out.println("+------+---------------------+------------+----------------+-------+-----------+-------------+----------------+---------------+");
-		System.out.println(" ");
-		System.out.println("Families");
-		System.out.println("+------+---------------+----------------+---------------+------------------+-------------+-----------------+-----------------+");
-		System.out.println("|  ID  |    Married    |    Divorced    |   Husband ID  |   Husband Name   |   Wife ID   |    Wife Name    |     Children    |");
-		System.out.println("+------+---------------+----------------+---------------+------------------+-------------+-----------------+-----------------+");
-		
-		/*for(int i = 1; i <= fp.length; i++) {
-			System.out.println("|  " + id + "  |    " + married + "    |    " + divorced + "   |   " + husbandID + "  |   " + husbandName + "   |   " + wifeID + "   |    " + wifeName + "    |     " + children + "    |");
-			i++;
-		}*/
-		
-		//System.out.println("|  " + id + "  |    " + married + "    |    " + divorced + "   |   " + husbandID + "  |   " + husbandName + "   |   " + wifeID + "   |    " + wifeName + "    |     " + children + "    |");
-		System.out.println(" ");
-		System.out.println("+------+---------------+----------------+---------------+------------------+-------------+-----------------+-----------------+");
-	}
+
 }
