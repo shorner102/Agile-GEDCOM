@@ -8,7 +8,6 @@ public class Family {
 	String husbandName;
 	String wifeID;
 	String wifeName;
-	int x;
 	ArrayList<String> children;
 
 	public Family() {
@@ -104,10 +103,28 @@ public class Family {
 		children.add(id);
 	}
 	
-	@Override
+	/*@Override
 	public String toString() {
 		return "Family [id=" + id + ", married=" + married + ", divorced=" + divorced + ", husbandID=" + husbandID
 				+ ", husbandName=" + husbandName + ", wifeID=" + wifeID + ", wifeName=" + wifeName + ", children="
 				+ children + "]";
+	}*/
+	
+	
+	public static void main (String[] args) {
+		System.out.println("Individuals");
+		System.out.println("+------+---------------------+------------+----------------+-------+-----------+-------------+----------------+---------------+");
+		System.out.println("|  ID  |        Name         |   Gender   |    Birthday    |  Age  |   Alive   |    Death    |     Child      |     Spouse    |");
+		System.out.println("+------+---------------------+------------+----------------+-------+-----------+-------------+----------------+---------------+");
+		//System.out.println("|  " + id + "  |        " + name + "         |   " + gender + "   |    " + birthday + "    |  " + age + "  |   " + alive + "   |    " + death + "    |     " + children + "      |     " + spouse + "    |");
+		System.out.println("+------+---------------------+------------+----------------+-------+-----------+-------------+----------------+---------------+");
+		System.out.println(" ");
+		System.out.println("Families");
+		System.out.println("+------+---------------+----------------+---------------+------------------+-------------+-----------------+-----------------+");
+		System.out.println("|  ID  |    Married    |    Divorced    |   Husband ID  |   Husband Name   |   Wife ID   |    Wife Name    |     Children    |");
+		System.out.println("+------+---------------+----------------+---------------+------------------+-------------+-----------------+-----------------+");
+		//System.out.println("|  " + id + "  |    " + married + "    |    " + divorced + "   |   " + husbandID + "  |   " + husbandName + "   |   " + wifeID + "   |    " + wifeName + "    |     " + children + "    |");
+		System.out.println(" ");
+		System.out.println("+------+---------------+----------------+---------------+------------------+-------------+-----------------+-----------------+");
 	}
 }
