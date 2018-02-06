@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class GEDInAndOut {
 	
@@ -13,6 +12,8 @@ public class GEDInAndOut {
 	public static void main(String[] args) {
 		//String fileName = "proj02test.ged";
 		String fileName = "Sydni_Horner-Project1.ged";
+		File f = new File("GED2/resources/" + fileName);
+		System.out.println(f.getAbsolutePath());
 		
 		ArrayList<Tag> parsedTags = new ArrayList<Tag>();
 		Family[] families = new Family[1000];
@@ -22,7 +23,7 @@ public class GEDInAndOut {
 		
 		String line = null;
 		try {
-			FileReader fileReader = new FileReader(fileName);
+			FileReader fileReader = new FileReader(f);
 
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 
