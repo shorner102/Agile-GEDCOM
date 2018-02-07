@@ -1,12 +1,16 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DateTimeParseException;
 
 public class Person {
 	String id;
 	String name;
 	String gender;
-	String birthday;
+	LocalDate birthday;
 	int age;
 	boolean alive;
-	String death;
+	LocalDate death;
 	String child;
 	String spouse;
 	
@@ -22,12 +26,12 @@ public class Person {
 		this.id = id;
 		this.name = name;
 		this.gender = gender;
-		this.birthday = birthday;
-		this.age = age;
+		this.birthday = parseDate(birthday);
 		this.alive = alive;
-		this.death = death;
+		this.death = parseDate(death);
 		this.child = child;
 		this.spouse = spouse;
+		this.age = calculateAge();
 	}
 
 	public String getId() {
@@ -54,12 +58,13 @@ public class Person {
 		this.gender = gender;
 	}
 
-	public String getBirthday() {
+	public LocalDate getBirthday() {
 		return birthday;
 	}
 
 	public void setBirthday(String birthday) {
-		this.birthday = birthday;
+		this.birthday = parseDate(birthday);
+		this.age = calculateAge();
 	}
 
 	public int getAge() {
@@ -78,12 +83,13 @@ public class Person {
 		this.alive = alive;
 	}
 
-	public String getDeath() {
+	public LocalDate getDeath() {
 		return death;
 	}
 
 	public void setDeath(String death) {
-		this.death = death;
+		this.death = parseDate(death);
+		this.age = calculateAge();
 	}
 
 	public String getChild() {
@@ -106,5 +112,28 @@ public class Person {
 		return "Person [id=" + id + ", name=" + name + ", gender=" + gender + ", birthday=" + birthday + ", age=" + age
 				+ ", alive=" + alive + ", death=" + death + ", child=" + child + ", spouse=" + spouse + "]";
 	}
+
+	public LocalDate parseDate(String input) {
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder().parseCaseInsensitive().appendPattern("d MMM yyyy").toFormatter();
+        try {
+	        LocalDate date = LocalDate.parse(input, formatter);
+	        return date;
+        } catch (DateTimeParseException exc){
+            System.out.printf("%s is not parsable!%n", input);
+            return null;
+        }
+    }
+
+    public int calculateAge() {
+		int birthYear = this.getBirthday().getYear();
+		if (this.alive) {
+			int currYear = LocalDate.now().getYear();
+			return currYear - birthYear;
+		} else {
+			int deathYear = this.getDeath().getYear();
+			return deathYear - birthYear;
+		}
+
+    }
 	
 }

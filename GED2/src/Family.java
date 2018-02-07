@@ -1,9 +1,13 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 
 public class Family {
 	String id;
-	String married;
-	String divorced;
+	LocalDate married;
+	LocalDate divorced;
 	String husbandID;
 	String husbandName;
 	String wifeID;
@@ -23,8 +27,8 @@ public class Family {
 
 	public Family(String id, String married, String divorced, Person husband, Person wife, ArrayList<String> children) {
 		this.id = id;
-		this.married = married;
-		this.divorced = divorced;
+		this.married = parseDate(married);
+		this.divorced = parseDate(divorced);
 		this.husbandID = husband.getId();
 		this.husbandName = husband.getName();
 		this.wifeID = wife.getId();
@@ -43,20 +47,22 @@ public class Family {
 		this.id = id;
 	}
 
-	public String getMarried() {
+	public LocalDate getMarried() {
 		return married;
 	}
 
 	public void setMarried(String married) {
-		this.married = married;
+	    if (married != null)
+		    this.married = parseDate(married);
 	}
 
-	public String getDivorced() {
+	public LocalDate getDivorced() {
 		return divorced;
 	}
 
 	public void setDivorced(String divorced) {
-		this.divorced = divorced;
+	    if (divorced != null)
+		    this.divorced = parseDate(divorced);
 	}
 
 	public String getHusbandID() {
@@ -101,6 +107,17 @@ public class Family {
 	
 	public void addChild(String id) {
 		children.add(id);
+	}
+
+	public LocalDate parseDate(String input) {
+		DateTimeFormatter formatter = new DateTimeFormatterBuilder().parseCaseInsensitive().appendPattern("d MMM yyyy").toFormatter();
+		try {
+			LocalDate date = LocalDate.parse(input, formatter);
+			return date;
+		} catch (DateTimeParseException exc){
+			System.out.printf("%s is not parsable!%n", input);
+			return null;
+		}
 	}
 	
 	/*@Override
