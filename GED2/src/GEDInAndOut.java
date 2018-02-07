@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 
 public class GEDInAndOut {
 	
@@ -12,17 +12,20 @@ public class GEDInAndOut {
 	
 	public static void main(String[] args) {
 		//String fileName = "proj02test.ged";
-		String fileName = "Sydni_Horner-Project1.ged";
+		//String fileName = "Sydni_Horner-Project1.ged";
+		String fileName = "hapsburgtree.ged";
+		File f = new File("GED2/resources/" + fileName);
+		System.out.println(f.getAbsolutePath());
 		
 		ArrayList<Tag> parsedTags = new ArrayList<Tag>();
-		Family[] families = new Family[1000];
-		Person[] people = new Person[5000];
-		int familyCounter = -1;
-		int personCounter = -1;
+		HashMap<String, Family> fams = new HashMap<>();
+		HashMap<String, Person> indis = new HashMap<>();
 		
-		String line = null;
+		String line;
+		String currPerson = "";
+		String currFamily = "";
 		try {
-			FileReader fileReader = new FileReader(fileName);
+			FileReader fileReader = new FileReader(f);
 
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 
@@ -48,71 +51,88 @@ public class GEDInAndOut {
 		}
 		for(int i = 0; i < parsedTags.size(); i++) {
 			if(parsedTags.get(i).isValid()) {
-				if(parsedTags.get(i).getTagName().equals("INDI"))
-					people[++personCounter] = new Person(parsedTags.get(i).getArgs());
-				else if(parsedTags.get(i).getTagName().equals("NAME"))
-					people[personCounter].setName(parsedTags.get(i).getArgs());
-				else if(parsedTags.get(i).getTagName().equals("SEX"))
-					people[personCounter].setGender(parsedTags.get(i).getArgs());
-				else if(parsedTags.get(i).getTagName().equals("BIRT"))
-					people[personCounter].setBirthday(parsedTags.get(i + 1).getArgs());
-				else if(parsedTags.get(i).getTagName().equals("DEAT")) {
-					people[personCounter].setDeath(parsedTags.get(i + 1).getArgs());
-					people[personCounter].setAlive(false);
-				}
-				else if(parsedTags.get(i).getTagName().equals("FAM")) 
-					families[++familyCounter] = new Family(parsedTags.get(i).getArgs());
-				
-				else if(parsedTags.get(i).getTagName().equals("HUSB")) {
-					families[familyCounter].setHusbandID(parsedTags.get(i).getArgs());
-				}
-				else if(parsedTags.get(i).getTagName().equals("WIFE")) 
-					families[familyCounter].setWifeID(parsedTags.get(i).getArgs());
-				else if(parsedTags.get(i).getTagName().equals("CHIL")) 
-					families[familyCounter].addChild(parsedTags.get(i).getArgs());
-
-				//System.out.println(parsedTags.get(i));
+			    String tagName = parsedTags.get(i).getTagName();
+			    switch (tagName) {
+                    case "INDI":
+                        Person newP = new Person(parsedTags.get(i).getArgs());
+                        currPerson = newP.getId();
+                        indis.put(currPerson, newP);
+                        break;
+                    case "NAME":
+                        indis.get(currPerson).setName(parsedTags.get(i).getArgs());
+                        break;
+                    case "SEX":
+                        indis.get(currPerson).setGender(parsedTags.get(i).getArgs());
+                        break;
+                    case "BIRT":
+                        indis.get(currPerson).setBirthday(parsedTags.get(i+1).getArgs());
+                        break;
+                    case "DEAT":
+                        indis.get(currPerson).setAlive(false);
+                        indis.get(currPerson).setDeath(parsedTags.get(i+1).getArgs());
+                        break;
+                    case "FAMC":
+                        indis.get(currPerson).setChild(parsedTags.get(i).getArgs());
+                        break;
+                    case "FAMS":
+                        indis.get(currPerson).setSpouse(parsedTags.get(i).getArgs());
+                        break;
+                    case "FAM":
+                        Family newF = new Family(parsedTags.get(i).getArgs());
+                        currFamily = newF.getId();
+                        fams.put(currFamily, newF);
+                        break;
+                    case "HUSB":
+                        String hid = parsedTags.get(i).getArgs();
+                        fams.get(currFamily).setHusbandID(hid);
+                        fams.get(currFamily).setHusbandName(indis.get(hid).getName());
+                        break;
+                    case "WIFE":
+                        String wid = parsedTags.get(i).getArgs();
+                        fams.get(currFamily).setWifeID(wid);
+                        fams.get(currFamily).setWifeName(indis.get(wid).getName());
+                        break;
+                    case "CHIL":
+                        fams.get(currFamily).addChild(parsedTags.get(i).getArgs());
+                        break;
+                    case "MARR":
+                        fams.get(currFamily).setMarried(parsedTags.get(i+1).getArgs());
+                        break;
+                    case "DIV":
+                        fams.get(currFamily).setDivorced(parsedTags.get(i+1).getArgs());
+                }
 				
 			}
 				
 		}
-		
-		printPeople(people);
-		
-		printFamilies(families);
+
+		printPeople(indis);
+		printFamilies(fams);
 
 		
 		
 	}
 	
-	public static void printPeople(Person[] people) {
+	public static void printPeople(HashMap<String, Person> people) {
 		System.out.println("Individuals");
 		System.out.println("+-------+--------------------------------+--------+-----------------+-----+-------+-----------------+------------+------------+");
 		System.out.println("|  ID   |             Name               | Gender |    Birthday     | Age | Alive |      Death      |   Child    |    Spouse  |");
 		System.out.println("+-------+--------------------------------+--------+-----------------+-----+-------+-----------------+------------+------------+");
-		
 
-		for(int i = 0; i < people.length; i++) {
-			if(people[i] != null)
-				System.out.format("| %5s | %30s | %6s | %15s | %3d | %5s | %15s | %10s | %10s |\n", people[i].getId() , people[i].getName(), people[i].getGender(), people[i].getBirthday() , people[i].getAge() , people[i].isAlive() ,  people[i].getDeath(), people[i].getChild() , people[i].getSpouse());
-				
-		}
+		people.forEach((k,v) -> System.out.format("| %5s | %30s | %6s | %15s | %3d | %5s | %15s | %10s | %10s |\n", v.getId() , v.getName(), v.getGender(), v.getBirthday() , v.getAge() , v.isAlive() ,  v.getDeath(), v.getChild() , v.getSpouse()));
+
 		System.out.println("+-------+--------------------------------+--------+-----------------+-----+-------+-----------------+------------+------------+");
 		
 	}
 	
-	public static void printFamilies(Family[] families) {
+	public static void printFamilies(HashMap<String, Family> families) {
 		
 		System.out.println("Families");
 		System.out.println("+-------+-----------------+-----------------+------------+--------------------------------+------------+--------------------------------+--------------------------------+");
 		System.out.println("|  ID   |     Married     |     Divorced    | Husband ID |          Husband Name          |   Wife ID  |             Wife Name          |             Children           |");
 		System.out.println("+-------+-----------------+-----------------+------------+--------------------------------+------------+--------------------------------+--------------------------------+");
-		
-		for(int i = 0; i < families.length; i++) {
-			if(families[i] != null)
-				System.out.format("| %5s | %15s | %15s | %10s | %30s | %10s | %30s | %30s |\n", families[i].getId() , families[i].getMarried(),families[i].getDivorced() , families[i].getHusbandID(),families[i].getHusbandName() , families[i].getWifeID(),families[i].getWifeName(),families[i].getChildren());
-			
-		}
+
+		families.forEach((k,v) -> System.out.format("| %5s | %15s | %15s | %10s | %30s | %10s | %30s | %30s |\n", v.getId(), v.getMarried(), v.getDivorced(), v.getHusbandID(), v.getHusbandName(), v.getWifeID(), v.getWifeName(), v.getChildren()));
 
 		System.out.println("+-------+-----------------+-----------------+------------+--------------------------------+------------+--------------------------------+--------------------------------+");
 	}
