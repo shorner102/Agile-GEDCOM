@@ -143,5 +143,12 @@ public class Person {
     public boolean dateBeforeCurrentDate(LocalDate date) {
 		LocalDate currentDate = LocalDate.now();
 		return date.isBefore(currentDate);
-	}   
+    }
+    
+    /*public boolean marriageDateBeforeDeathDate() {
+		
+    	//going to have to parse through the family to get the marriage date
+    	return married.isBefore(death);
+	}*/
+
 }
