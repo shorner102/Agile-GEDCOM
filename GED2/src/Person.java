@@ -62,8 +62,10 @@ public class Person {
 		return birthday;
 	}
 
-	public void setBirthday(String birthday) {
+	public void setBirthday(String birthday) throws BadDateException {
 		this.birthday = parseDate(birthday);
+	    if(!dateBeforeCurrentDate(this.birthday))
+	    	throw new BadDateException("Date for birthday of person " + id + " is after the current date");
 		this.age = calculateAge();
 	}
 
@@ -87,8 +89,10 @@ public class Person {
 		return death;
 	}
 
-	public void setDeath(String death) {
+	public void setDeath(String death) throws BadDateException {
 		this.death = parseDate(death);
+	    if(!dateBeforeCurrentDate(this.death))
+	    	throw new BadDateException("Date for death of person " + id + " is after the current date");
 		this.age = calculateAge();
 	}
 
@@ -135,5 +139,10 @@ public class Person {
 		}
 
     }
+    
+    public boolean dateBeforeCurrentDate(LocalDate date) {
+		LocalDate currentDate = LocalDate.now();
+		return date.isBefore(currentDate);
+	}
 	
 }

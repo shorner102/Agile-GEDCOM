@@ -51,18 +51,22 @@ public class Family {
 		return married;
 	}
 
-	public void setMarried(String married) {
+	public void setMarried(String married) throws BadDateException {
 	    if (married != null)
 		    this.married = parseDate(married);
+	    if(!dateBeforeCurrentDate(this.married))
+	    	throw new BadDateException("Date for marriage in family " + id + " is after the current date");
 	}
 
 	public LocalDate getDivorced() {
 		return divorced;
 	}
 
-	public void setDivorced(String divorced) {
+	public void setDivorced(String divorced) throws BadDateException {
 	    if (divorced != null)
 		    this.divorced = parseDate(divorced);
+	    if(!dateBeforeCurrentDate(this.divorced))
+	    	throw new BadDateException("Date for divorce in family " + id + " is after the current date");
 	}
 
 	public String getHusbandID() {
@@ -118,6 +122,11 @@ public class Family {
 			System.out.printf("%s is not parsable!%n", input);
 			return null;
 		}
+	}
+	
+	public boolean dateBeforeCurrentDate(LocalDate date) {
+		LocalDate currentDate = LocalDate.now();
+		return date.isBefore(currentDate);
 	}
 	
 	/*@Override
