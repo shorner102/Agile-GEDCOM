@@ -78,5 +78,16 @@ public class GEDInAndOutTest {
 			fam.setDivorced("08 MAY 2100");
 		});
 	}
+	
+	@Test
+	void createDeath() throws BadDateException {
+		DateTimeFormatter formatter = new DateTimeFormatterBuilder().parseCaseInsensitive().appendPattern("d MMM yyyy").toFormatter();
+		LocalDate date = LocalDate.parse("50 OCT 2015", formatter);
+		
+		Person person = new Person();
+		person.setAlive(true);
+		person.setBirthday("50 OCT 2015");
+		assertEquals(person.getBirthday(), date);
+	}
 
 }

@@ -143,6 +143,5 @@ public class Person {
     public boolean dateBeforeCurrentDate(LocalDate date) {
 		LocalDate currentDate = LocalDate.now();
 		return date.isBefore(currentDate);
-	}
-	
+	}   
 }
