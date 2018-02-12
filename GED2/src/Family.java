@@ -129,6 +129,11 @@ public class Family {
 		return date.isBefore(currentDate);
 	}
 	
+	public boolean marriageDateBeforeDivorceDate() {
+		
+		return married.isBefore(divorced);
+	}
+	
 	/*@Override
 	public String toString() {
 		return "Family [id=" + id + ", married=" + married + ", divorced=" + divorced + ", husbandID=" + husbandID
