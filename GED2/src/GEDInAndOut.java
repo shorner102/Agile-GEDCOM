@@ -112,6 +112,7 @@ public class GEDInAndOut {
 
 		printPeople(indis);
 		printFamilies(fams);
+		printErrors(indis, fams);
 
 	}
 
@@ -151,6 +152,11 @@ public class GEDInAndOut {
 				"+-------+-----------------+-----------------+------------+--------------------------------+------------+--------------------------------+--------------------------------+");
 	}
 
+	public static void printErrors(HashMap<String, Person> people, HashMap<String, Family> families) {
+		System.out.println("\nErrors to fix in the GEDCOM files: ");
+		families.forEach((k,v) -> printArrayList(v.getErrors()));
+		people.forEach((k,v) -> printArrayList(v.getErrors()));
+	}
 	public static int getLevel(String line) {
 		return Character.getNumericValue(line.charAt(0));
 	}
@@ -187,6 +193,12 @@ public class GEDInAndOut {
 			count++;
 		String args = line.substring(2, count);
 		return new Tag(level, line.substring(count + 1), true, args);
+	}
+	
+	public static void printArrayList(ArrayList<String> arr) {
+		for(int i = 0 ; i < arr.size(); i ++) {
+			System.out.println(arr);
+		}
 	}
 
 }

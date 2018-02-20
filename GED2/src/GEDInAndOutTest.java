@@ -10,6 +10,12 @@ import java.time.format.DateTimeFormatterBuilder;
 
 public class GEDInAndOutTest {
 
+	
+    public boolean dateBeforeCurrentDate(LocalDate date) {
+		LocalDate currentDate = LocalDate.now();
+		return date.isBefore(currentDate);
+    }
+    
 	@Test
 	void dateBeforeCurrentDateTest1() {
 		Family fam = new Family();
@@ -38,6 +44,7 @@ public class GEDInAndOutTest {
 		LocalDate date = LocalDate.parse("10 FEB 2018", formatter);
 		assertTrue(fam.dateBeforeCurrentDate(date));
 	}
+	
 	@Test
 	void dateBeforeCurrentDateTest5() {
 		Family fam = new Family();
@@ -47,47 +54,8 @@ public class GEDInAndOutTest {
 		assertFalse(fam.dateBeforeCurrentDate(date));
 	}
 	
-	@Test
-	void dateBeforeCurrentDateTest6() throws BadDateException {
-		Family fam = new Family();
-		assertThrows(BadDateException.class, () ->{
-			fam.setMarried("04 JUN 2020");
-		});
-	}
+	
+	
 
-	@Test
-	void dateBeforeCurrentDateTest7() throws BadDateException {
-		Family fam = new Family();
-		assertThrows(BadDateException.class, () ->{
-			fam.setDivorced("04 SEP 2052");
-		});
-	}
-	
-	@Test
-	void dateBeforeCurrentDateTest8() throws BadDateException {
-		Family fam = new Family();
-		assertThrows(BadDateException.class, () ->{
-			fam.setDivorced("25 OCT 2019");
-		});
-	}
-	
-	@Test
-	void dateBeforeCurrentDateTest9() throws BadDateException {
-		Family fam = new Family();
-		assertThrows(BadDateException.class, () ->{
-			fam.setDivorced("08 MAY 2100");
-		});
-	}
-	
-	@Test
-	void createDeath() throws BadDateException {
-		DateTimeFormatter formatter = new DateTimeFormatterBuilder().parseCaseInsensitive().appendPattern("d MMM yyyy").toFormatter();
-		LocalDate date = LocalDate.parse("50 OCT 2015", formatter);
-		
-		Person person = new Person();
-		person.setAlive(true);
-		person.setBirthday("50 OCT 2015");
-		assertEquals(person.getBirthday(), date);
-	}
 
 }

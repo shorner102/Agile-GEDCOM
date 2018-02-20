@@ -2,6 +2,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 
 public class Person {
 	String id;
@@ -13,6 +14,7 @@ public class Person {
 	LocalDate death;
 	String child;
 	String spouse;
+	ArrayList<String> errors;
 	
 	public Person() {
 		
@@ -20,6 +22,7 @@ public class Person {
 	public Person(String id) {
 		this.id = id;
 		alive = true;
+		errors = new ArrayList<String>();
 	}
 	
 	public Person(String id, String name, String gender, String birthday, int age, boolean alive, String death, String child, String spouse) {
@@ -32,8 +35,21 @@ public class Person {
 		this.child = child;
 		this.spouse = spouse;
 		this.age = calculateAge();
+		errors = new ArrayList<String>();
 	}
 
+	public ArrayList<String> getErrors() {
+		return errors;
+	}
+	public void setErrors(ArrayList<String> errors) {
+		this.errors = errors;
+	}
+	public void setBirthday(LocalDate birthday) {
+		this.birthday = birthday;
+	}
+	public void setDeath(LocalDate death) {
+		this.death = death;
+	}
 	public String getId() {
 		return id;
 	}
@@ -62,10 +78,10 @@ public class Person {
 		return birthday;
 	}
 
-	public void setBirthday(String birthday) throws BadDateException {
+	public void setBirthday(String birthday) {
 		this.birthday = parseDate(birthday);
 	    if(!dateBeforeCurrentDate(this.birthday))
-	    	throw new BadDateException("Date for birthday of person " + id + " is after the current date");
+    		errors.add("Birthday for person " + id + " has not happened yet.");
 		this.age = calculateAge();
 	}
 
@@ -89,10 +105,10 @@ public class Person {
 		return death;
 	}
 
-	public void setDeath(String death) throws BadDateException {
+	public void setDeath(String death) {
 		this.death = parseDate(death);
 	    if(!dateBeforeCurrentDate(this.death))
-	    	throw new BadDateException("Date for death of person " + id + " is after the current date");
+    		errors.add("Death date for person " + id + " has not happened yet.");
 		this.age = calculateAge();
 	}
 

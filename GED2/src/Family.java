@@ -13,6 +13,7 @@ public class Family {
 	String wifeID;
 	String wifeName;
 	ArrayList<String> children;
+	ArrayList<String> errors;
 
 	public Family() {
 
@@ -21,11 +22,13 @@ public class Family {
 	public Family(String id) {
 		this.id = id;
 		children = new ArrayList<String>();
+		errors = new ArrayList<String>();
 	}
 
 	
 
 	public Family(String id, String married, String divorced, Person husband, Person wife, ArrayList<String> children) {
+		errors = new ArrayList<String>();
 		this.id = id;
 		this.married = parseDate(married);
 		this.divorced = parseDate(divorced);
@@ -37,6 +40,22 @@ public class Family {
 		for (int i = 0; i < children.size(); i++) {
 			this.children.add(children.get(i));
 		}
+	}
+
+	public ArrayList<String> getErrors() {
+		return errors;
+	}
+
+	public void setErrors(ArrayList<String> errors) {
+		this.errors = errors;
+	}
+
+	public void setMarried(LocalDate married) {
+		this.married = married;
+	}
+
+	public void setDivorced(LocalDate divorced) {
+		this.divorced = divorced;
 	}
 
 	public String getId() {
@@ -51,22 +70,22 @@ public class Family {
 		return married;
 	}
 
-	public void setMarried(String married) throws BadDateException {
+	public void setMarried(String married) {
 	    if (married != null)
 		    this.married = parseDate(married);
 	    if(!dateBeforeCurrentDate(this.married))
-	    	throw new BadDateException("Date for marriage in family " + id + " is after the current date");
+	    	errors.add("Marriage date in family " + id + " has not happened yet.");
 	}
 
 	public LocalDate getDivorced() {
 		return divorced;
 	}
 
-	public void setDivorced(String divorced) throws BadDateException {
+	public void setDivorced(String divorced)  {
 	    if (divorced != null)
 		    this.divorced = parseDate(divorced);
 	    if(!dateBeforeCurrentDate(this.divorced))
-	    	throw new BadDateException("Date for divorce in family " + id + " is after the current date");
+	    	errors.add("Divorce date in family " + id + " has not happened yet.");
 	}
 
 	public String getHusbandID() {
@@ -134,13 +153,7 @@ public class Family {
 		return married.isBefore(divorced);
 	}
 	
-	/*@Override
-	public String toString() {
-		return "Family [id=" + id + ", married=" + married + ", divorced=" + divorced + ", husbandID=" + husbandID
-				+ ", husbandName=" + husbandName + ", wifeID=" + wifeID + ", wifeName=" + wifeName + ", children="
-				+ children + "]";
-	}*/
-	
+
 	
 
 }

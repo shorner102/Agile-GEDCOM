@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatterBuilder;
 class Test {
 
 	@org.junit.jupiter.api.Test
-	void test1() throws BadDateException {
+	void test1()  {
 		Family f = new Family();
 		f.setMarried("01 JUN 2010");
 		f.setDivorced("03 AUG 2016");
@@ -15,7 +15,7 @@ class Test {
 	}
 	
 	@org.junit.jupiter.api.Test
-	void test2() throws BadDateException {
+	void test2() {
 		Family f = new Family();
 		f.setMarried("01 JUN 2010");
 		f.setDivorced("02 JUN 2010");
@@ -23,7 +23,7 @@ class Test {
 	}
 	
 	@org.junit.jupiter.api.Test
-	void test3() throws BadDateException {
+	void test3()  {
 		Family f = new Family();
 		f.setMarried("20 OCT 2010");
 		f.setDivorced("02 JUN 2009");
@@ -31,7 +31,7 @@ class Test {
 	}
 	
 	@org.junit.jupiter.api.Test
-	void test4() throws BadDateException {
+	void test4() {
 		Family f = new Family();
 		f.setMarried("20 OCT 2017");
 		f.setDivorced("02 JUN 2009");
@@ -39,7 +39,7 @@ class Test {
 	}
 	
 	@org.junit.jupiter.api.Test
-	void test5() throws BadDateException {
+	void test5()  {
 		Family f = new Family();
 		f.setMarried("02 FEB 2017");
 		f.setDivorced("12 FEB 2017");
