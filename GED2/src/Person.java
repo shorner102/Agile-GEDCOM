@@ -80,9 +80,13 @@ public class Person {
 
 	public void setBirthday(String birthday) {
 		this.birthday = parseDate(birthday);
-	    if(!dateBeforeCurrentDate(this.birthday))
-    		errors.add("Birthday for person " + id + " has not happened yet.");
-		this.age = calculateAge();
+	    if(this.birthday == null) 
+    		errors.add("Birthday for person " + id + " is not a valid date.");
+	    else if(!dateBeforeCurrentDate(this.birthday))
+	    	errors.add("Birthday for person " + id + " has not happened yet.");
+	    else
+	    	this.age = calculateAge();	
+	    
 	}
 
 	public int getAge() {
@@ -107,9 +111,13 @@ public class Person {
 
 	public void setDeath(String death) {
 		this.death = parseDate(death);
-	    if(!dateBeforeCurrentDate(this.death))
+
+	    if(this.death == null) 
+    		errors.add("Death date for person " + id + " is not a valid date.");
+	    else if(!dateBeforeCurrentDate(this.death))
     		errors.add("Death date for person " + id + " has not happened yet.");
-		this.age = calculateAge();
+	    else if(this.birthday != null)
+	    	this.age = calculateAge();
 	}
 
 	public String getChild() {
@@ -139,7 +147,7 @@ public class Person {
 	        LocalDate date = LocalDate.parse(input, formatter);
 	        return date;
         } catch (DateTimeParseException exc){
-            System.out.printf("%s is not parsable!%n", input);
+            //System.out.printf("%s is not parsable!%n", input);
             return null;
         }
     }

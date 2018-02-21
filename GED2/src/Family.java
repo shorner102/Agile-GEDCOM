@@ -73,7 +73,9 @@ public class Family {
 	public void setMarried(String married) {
 	    if (married != null)
 		    this.married = parseDate(married);
-	    if(!dateBeforeCurrentDate(this.married))
+	    if(this.married == null)
+	    	errors.add("Marriage date for family " + id + " is not a valid date");
+	    else if(!dateBeforeCurrentDate(this.married))
 	    	errors.add("Marriage date in family " + id + " has not happened yet.");
 	}
 
@@ -84,7 +86,9 @@ public class Family {
 	public void setDivorced(String divorced)  {
 	    if (divorced != null)
 		    this.divorced = parseDate(divorced);
-	    if(!dateBeforeCurrentDate(this.divorced))
+	    if(this.divorced == null)
+	    	errors.add("Divorce date for family " + id + " is not a valid date");
+	    else if(!dateBeforeCurrentDate(this.divorced))
 	    	errors.add("Divorce date in family " + id + " has not happened yet.");
 	}
 
@@ -138,7 +142,7 @@ public class Family {
 			LocalDate date = LocalDate.parse(input, formatter);
 			return date;
 		} catch (DateTimeParseException exc){
-			System.out.printf("%s is not parsable!%n", input);
+			//System.out.printf("%s is not parsable!%n", input);
 			return null;
 		}
 	}
