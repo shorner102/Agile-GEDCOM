@@ -217,19 +217,14 @@ public class GEDInAndOut {
 				else if (!getFamily(indis.get(i).getSpouse()).getMarried().isBefore(indis.get(i).getDeath()))
 					System.out.println("Marriage date for person " + indis.get(i).getId() + " is after the death date.");
 					
-			}
-				//System.out.println("Person " + people.get(i).getId());
-			
+			}			
 		}
 		
 	}
 	
 	public static Family getFamily(String id) {
-		//for(int i = 0; i < families.size(); i++) {
 
 		for(String i : fams.keySet()) {
-
-			//System.out.println(id + " " + families.get(i).getId());
 			if(id.equals(fams.get(i).getId())){
 				return fams.get(i);
 			}

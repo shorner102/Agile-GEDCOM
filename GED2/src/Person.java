@@ -15,6 +15,7 @@ public class Person {
 	String child;
 	String spouse;
 	ArrayList<String> errors;
+	DateHelper dateHelper;
 	
 	public Person() {
 		
@@ -23,19 +24,21 @@ public class Person {
 		this.id = id;
 		alive = true;
 		errors = new ArrayList<String>();
+		dateHelper = new DateHelper();
 	}
 	
 	public Person(String id, String name, String gender, String birthday, int age, boolean alive, String death, String child, String spouse) {
 		this.id = id;
 		this.name = name;
 		this.gender = gender;
-		this.birthday = parseDate(birthday);
+		this.birthday = dateHelper.parseDate(birthday);
 		this.alive = alive;
-		this.death = parseDate(death);
+		this.death = dateHelper.parseDate(death);
 		this.child = child;
 		this.spouse = spouse;
-		this.age = calculateAge();
+		this.age = dateHelper.calculateAge(this.alive, this.birthday, this.death);
 		errors = new ArrayList<String>();
+		dateHelper = new DateHelper();
 	}
 
 	public ArrayList<String> getErrors() {
@@ -79,13 +82,13 @@ public class Person {
 	}
 
 	public void setBirthday(String birthday) {
-		this.birthday = parseDate(birthday);
+		this.birthday = dateHelper.parseDate(birthday);
 	    if(this.birthday == null) 
     		errors.add("Birthday for person " + id + " is not a valid date.");
-	    else if(!dateBeforeCurrentDate(this.birthday))
+	    else if(!dateHelper.dateBeforeCurrentDate(this.birthday))
 	    	errors.add("Birthday for person " + id + " has not happened yet.");
 	    else
-	    	this.age = calculateAge();	
+	    	this.age = dateHelper.calculateAge(this.alive, this.birthday, this.death);
 	    
 	}
 
@@ -110,14 +113,14 @@ public class Person {
 	}
 
 	public void setDeath(String death) {
-		this.death = parseDate(death);
+		this.death = dateHelper.parseDate(death);
 
 	    if(this.death == null) 
     		errors.add("Death date for person " + id + " is not a valid date.");
-	    else if(!dateBeforeCurrentDate(this.death))
+	    else if(!dateHelper.dateBeforeCurrentDate(this.death))
     		errors.add("Death date for person " + id + " has not happened yet.");
 	    else if(this.birthday != null)
-	    	this.age = calculateAge();
+	    	this.age = dateHelper.calculateAge(this.alive, this.birthday, this.death);
 	}
 
 	public String getChild() {
@@ -141,33 +144,7 @@ public class Person {
 				+ ", alive=" + alive + ", death=" + death + ", child=" + child + ", spouse=" + spouse + "]";
 	}
 
-	public LocalDate parseDate(String input) {
-        DateTimeFormatter formatter = new DateTimeFormatterBuilder().parseCaseInsensitive().appendPattern("d MMM yyyy").toFormatter();
-        try {
-	        LocalDate date = LocalDate.parse(input, formatter);
-	        return date;
-        } catch (DateTimeParseException exc){
-            //System.out.printf("%s is not parsable!%n", input);
-            return null;
-        }
-    }
 
-    public int calculateAge() {
-		int birthYear = this.getBirthday().getYear();
-		if (this.alive) {
-			int currYear = LocalDate.now().getYear();
-			return currYear - birthYear;
-		} else {
-			int deathYear = this.getDeath().getYear();
-			return deathYear - birthYear;
-		}
-
-    }
-    
-    public boolean dateBeforeCurrentDate(LocalDate date) {
-		LocalDate currentDate = LocalDate.now();
-		return date.isBefore(currentDate);
-    }
     
     
 

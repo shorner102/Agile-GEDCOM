@@ -6,14 +6,15 @@ import java.util.*;
 
 public class Family {
 	String id;
-	LocalDate married;
-	LocalDate divorced;
+	LocalDate marriageDate;
+	LocalDate divorceDate;
 	String husbandID;
 	String husbandName;
 	String wifeID;
 	String wifeName;
 	ArrayList<String> children;
 	ArrayList<String> errors;
+	DateHelper dateHelper;
 
 	public Family() {
 
@@ -23,6 +24,7 @@ public class Family {
 		this.id = id;
 		children = new ArrayList<String>();
 		errors = new ArrayList<String>();
+		dateHelper = new DateHelper();
 	}
 
 	
@@ -30,8 +32,8 @@ public class Family {
 	public Family(String id, String married, String divorced, Person husband, Person wife, ArrayList<String> children) {
 		errors = new ArrayList<String>();
 		this.id = id;
-		this.married = parseDate(married);
-		this.divorced = parseDate(divorced);
+		this.marriageDate = dateHelper.parseDate(married);
+		this.divorceDate = dateHelper.parseDate(divorced);
 		this.husbandID = husband.getId();
 		this.husbandName = husband.getName();
 		this.wifeID = wife.getId();
@@ -40,6 +42,7 @@ public class Family {
 		for (int i = 0; i < children.size(); i++) {
 			this.children.add(children.get(i));
 		}
+		dateHelper = new DateHelper();
 	}
 
 	public ArrayList<String> getErrors() {
@@ -51,11 +54,11 @@ public class Family {
 	}
 
 	public void setMarried(LocalDate married) {
-		this.married = married;
+		this.marriageDate = married;
 	}
 
 	public void setDivorced(LocalDate divorced) {
-		this.divorced = divorced;
+		this.divorceDate = divorced;
 	}
 
 	public String getId() {
@@ -67,30 +70,30 @@ public class Family {
 	}
 
 	public LocalDate getMarried() {
-		return married;
+		return marriageDate;
 	}
 
 	public void setMarried(String married) {
 	    if (married != null)
-		    this.married = parseDate(married);
-	    if(this.married == null)
+		    this.marriageDate = dateHelper.parseDate(married);
+	    if(this.marriageDate == null)
 	    	errors.add("Marriage date for family " + id + " is not a valid date");
-	    else if(!dateBeforeCurrentDate(this.married))
+	    else if(!dateHelper.dateBeforeCurrentDate(this.marriageDate))
 	    	errors.add("Marriage date in family " + id + " has not happened yet.");
 	}
 
 	public LocalDate getDivorced() {
-		return divorced;
+		return divorceDate;
 	}
 
 	public void setDivorced(String divorced)  {
 	    if (divorced != null)
-		    this.divorced = parseDate(divorced);
-	    if(this.divorced == null)
+		    this.divorceDate = dateHelper.parseDate(divorced);
+	    if(this.divorceDate == null)
 	    	errors.add("Divorce date for family " + id + " is not a valid date");
-	    else if(!dateBeforeCurrentDate(this.divorced))
+	    else if(!dateHelper.dateBeforeCurrentDate(this.divorceDate))
 	    	errors.add("Divorce date in family " + id + " has not happened yet.");
-	    else if(!marriageDateBeforeDivorceDate())
+	    else if(!dateHelper.marriageDateBeforeDivorceDate(this.marriageDate, this.divorceDate))
 	    	errors.add("Divorce date in family " + id + " is before marriage date.");
 	}
 
@@ -138,26 +141,8 @@ public class Family {
 		children.add(id);
 	}
 
-	public LocalDate parseDate(String input) {
-		DateTimeFormatter formatter = new DateTimeFormatterBuilder().parseCaseInsensitive().appendPattern("d MMM yyyy").toFormatter();
-		try {
-			LocalDate date = LocalDate.parse(input, formatter);
-			return date;
-		} catch (DateTimeParseException exc){
-			//System.out.printf("%s is not parsable!%n", input);
-			return null;
-		}
-	}
 	
-	public boolean dateBeforeCurrentDate(LocalDate date) {
-		LocalDate currentDate = LocalDate.now();
-		return date.isBefore(currentDate);
-	}
 	
-	public boolean marriageDateBeforeDivorceDate() {
-		
-		return married.isBefore(divorced);
-	}
 	
 
 	
