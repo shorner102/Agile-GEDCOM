@@ -10,7 +10,9 @@ public class GEDInAndOut {
 			new Tag(0, "FAM", true), new Tag(1, "MARR", false), new Tag(1, "HUSB", false), new Tag(1, "WIFE", false),
 			new Tag(1, "CHIL", false), new Tag(1, "DIV", false), new Tag(2, "DATE", false), new Tag(0, "HEAD", false),
 			new Tag(0, "TRLR", false), new Tag(0, "NOTE", false) };
-	
+
+	static HashMap<String, Family> fams = new HashMap<>();
+	static HashMap<String, Person> indis = new HashMap<>();
 
 	public static void main(String[] args) {
 		// String fileName = "proj02test.ged";
@@ -20,8 +22,8 @@ public class GEDInAndOut {
 		System.out.println(f.getAbsolutePath());
 
 		ArrayList<Tag> parsedTags = new ArrayList<Tag>();
-		HashMap<String, Family> fams = new HashMap<>();
-		HashMap<String, Person> indis = new HashMap<>();
+		fams = new HashMap<>();
+		indis = new HashMap<>();
 
 		String line;
 		String currPerson = "";
@@ -111,13 +113,13 @@ public class GEDInAndOut {
 			System.out.println(e);
 		}
 
-		printPeople(indis);
-		printFamilies(fams);
-		printErrors(indis, fams);
+		printPeople();
+		printFamilies();
+		printErrors();
 
 	}
 
-	public static void printPeople(HashMap<String, Person> people) {
+	public static void printPeople() {
 		System.out.println("Individuals");
 		System.out.println(
 				"+-------+--------------------------------+--------+-----------------+-----+-------+-----------------+------------+------------+");
@@ -126,7 +128,7 @@ public class GEDInAndOut {
 		System.out.println(
 				"+-------+--------------------------------+--------+-----------------+-----+-------+-----------------+------------+------------+");
 
-		people.forEach((k, v) -> System.out.format("| %5s | %30s | %6s | %15s | %3d | %5s | %15s | %10s | %10s |\n",
+		indis.forEach((k, v) -> System.out.format("| %5s | %30s | %6s | %15s | %3d | %5s | %15s | %10s | %10s |\n",
 				v.getId(), v.getName(), v.getGender(), v.getBirthday(), v.getAge(), v.isAlive(), v.getDeath(),
 				v.getChild(), v.getSpouse()));
 
@@ -135,7 +137,7 @@ public class GEDInAndOut {
 
 	}
 
-	public static void printFamilies(HashMap<String, Family> families) {
+	public static void printFamilies() {
 
 		
 		System.out.println("Families");
@@ -146,7 +148,7 @@ public class GEDInAndOut {
 		System.out.println(
 				"+-------+-----------------+-----------------+------------+--------------------------------+------------+--------------------------------+--------------------------------+");
 
-		families.forEach((k, v) -> System.out.format("| %5s | %15s | %15s | %10s | %30s | %10s | %30s | %30s |\n",
+		fams.forEach((k, v) -> System.out.format("| %5s | %15s | %15s | %10s | %30s | %10s | %30s | %30s |\n",
 				v.getId(), v.getMarried(), v.getDivorced(), v.getHusbandID(), v.getHusbandName(), v.getWifeID(),
 				v.getWifeName(), v.getChildren()));
 
@@ -154,11 +156,11 @@ public class GEDInAndOut {
 				"+-------+-----------------+-----------------+------------+--------------------------------+------------+--------------------------------+--------------------------------+");
 	}
 
-	public static void printErrors(HashMap<String, Person> people, HashMap<String, Family> families) {
+	public static void printErrors() {
 		System.out.println("\nErrors to fix in the GEDCOM files: ");
-		families.forEach((k,v) -> printArrayList(v.getErrors()));
-		people.forEach((k,v) -> printArrayList(v.getErrors()));
-		marriageDateBeforeDeathDate(people, families);
+		fams.forEach((k,v) -> printArrayList(v.getErrors()));
+		indis.forEach((k,v) -> printArrayList(v.getErrors()));
+		marriageDateBeforeDeathDate();
 		
 	}
 	public static int getLevel(String line) {
@@ -205,15 +207,15 @@ public class GEDInAndOut {
 		}
 	}
 
-	public static void marriageDateBeforeDeathDate(HashMap<String, Person> people, HashMap<String, Family> families) {
+	public static void marriageDateBeforeDeathDate() {
 		//for(int i = 0; i < people.size();i++) {
-		for(String i : people.keySet()) {
+		for(String i : indis.keySet()) {
 			//System.out.println(people.get(i));
-			if (!people.get(i).isAlive() && people.get(i).getSpouse() != null) {
-				if(getFamily(people.get(i).getSpouse(),families).getMarried() == null)
-					System.out.println("Marriage date for person " + people.get(i).getId() + " does not exist.");
-				else if (!getFamily(people.get(i).getSpouse(), families).getMarried().isBefore(people.get(i).getDeath()))
-					System.out.println("Marriage date for person " + people.get(i).getId() + " is after the death date.");
+			if (!indis.get(i).isAlive() && indis.get(i).getSpouse() != null) {
+				if(getFamily(indis.get(i).getSpouse()).getMarried() == null)
+					System.out.println("Marriage date for person " + indis.get(i).getId() + " does not exist.");
+				else if (!getFamily(indis.get(i).getSpouse()).getMarried().isBefore(indis.get(i).getDeath()))
+					System.out.println("Marriage date for person " + indis.get(i).getId() + " is after the death date.");
 					
 			}
 				//System.out.println("Person " + people.get(i).getId());
@@ -222,14 +224,14 @@ public class GEDInAndOut {
 		
 	}
 	
-	public static Family getFamily(String id, HashMap<String, Family> families) {
+	public static Family getFamily(String id) {
 		//for(int i = 0; i < families.size(); i++) {
 
-		for(String i : families.keySet()) {
+		for(String i : fams.keySet()) {
 
 			//System.out.println(id + " " + families.get(i).getId());
-			if(id.equals(families.get(i).getId())){
-				return families.get(i);
+			if(id.equals(fams.get(i).getId())){
+				return fams.get(i);
 			}
 		}
 		return null;
