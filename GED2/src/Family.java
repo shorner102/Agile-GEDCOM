@@ -90,6 +90,8 @@ public class Family {
 	    	errors.add("Divorce date for family " + id + " is not a valid date");
 	    else if(!dateBeforeCurrentDate(this.divorced))
 	    	errors.add("Divorce date in family " + id + " has not happened yet.");
+	    else if(!marriageDateBeforeDivorceDate())
+	    	errors.add("Divorce date in family " + id + " is before marriage date.");
 	}
 
 	public String getHusbandID() {

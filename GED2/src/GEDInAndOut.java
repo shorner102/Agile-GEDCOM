@@ -10,6 +10,7 @@ public class GEDInAndOut {
 			new Tag(0, "FAM", true), new Tag(1, "MARR", false), new Tag(1, "HUSB", false), new Tag(1, "WIFE", false),
 			new Tag(1, "CHIL", false), new Tag(1, "DIV", false), new Tag(2, "DATE", false), new Tag(0, "HEAD", false),
 			new Tag(0, "TRLR", false), new Tag(0, "NOTE", false) };
+	
 
 	public static void main(String[] args) {
 		// String fileName = "proj02test.ged";
@@ -136,6 +137,7 @@ public class GEDInAndOut {
 
 	public static void printFamilies(HashMap<String, Family> families) {
 
+		
 		System.out.println("Families");
 		System.out.println(
 				"+-------+-----------------+-----------------+------------+--------------------------------+------------+--------------------------------+--------------------------------+");
@@ -200,5 +202,7 @@ public class GEDInAndOut {
 			System.out.println(arr);
 		}
 	}
+	
+
 
 }
