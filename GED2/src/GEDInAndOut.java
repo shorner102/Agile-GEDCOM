@@ -158,6 +158,8 @@ public class GEDInAndOut {
 		System.out.println("\nErrors to fix in the GEDCOM files: ");
 		families.forEach((k,v) -> printArrayList(v.getErrors()));
 		people.forEach((k,v) -> printArrayList(v.getErrors()));
+		marriageDateBeforeDeathDate(people, families);
+		
 	}
 	public static int getLevel(String line) {
 		return Character.getNumericValue(line.charAt(0));
@@ -202,7 +204,35 @@ public class GEDInAndOut {
 			System.out.println(arr);
 		}
 	}
-	
 
+	public static void marriageDateBeforeDeathDate(HashMap<String, Person> people, HashMap<String, Family> families) {
+		//for(int i = 0; i < people.size();i++) {
+		for(String i : people.keySet()) {
+			//System.out.println(people.get(i));
+			if (!people.get(i).isAlive() && people.get(i).getSpouse() != null) {
+				if(getFamily(people.get(i).getSpouse(),families).getMarried() == null)
+					System.out.println("Marriage date for person " + people.get(i).getId() + " does not exist.");
+				else if (!getFamily(people.get(i).getSpouse(), families).getMarried().isBefore(people.get(i).getDeath()))
+					System.out.println("Marriage date for person " + people.get(i).getId() + " is after the death date.");
+					
+			}
+				//System.out.println("Person " + people.get(i).getId());
+			
+		}
+		
+	}
+	
+	public static Family getFamily(String id, HashMap<String, Family> families) {
+		//for(int i = 0; i < families.size(); i++) {
+
+		for(String i : families.keySet()) {
+
+			//System.out.println(id + " " + families.get(i).getId());
+			if(id.equals(families.get(i).getId())){
+				return families.get(i);
+			}
+		}
+		return null;
+	}
 
 }

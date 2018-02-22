@@ -169,10 +169,6 @@ public class Person {
 		return date.isBefore(currentDate);
     }
     
-    /*public boolean marriageDateBeforeDeathDate() {
-		
-    	//going to have to parse through the family to get the marriage date
-    	return married.isBefore(death);
-	}*/
+    
 
 }
