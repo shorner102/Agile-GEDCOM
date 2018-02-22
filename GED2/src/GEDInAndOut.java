@@ -15,7 +15,7 @@ public class GEDInAndOut {
 		// String fileName = "proj02test.ged";
 		// String fileName = "Sydni_Horner-Project1.ged";
 		String fileName = "hapsburgtree.ged";
-		File f = new File("resources/" + fileName);
+		File f = new File("GED2/resources/" + fileName);
 		System.out.println(f.getAbsolutePath());
 
 		ArrayList<Tag> parsedTags = new ArrayList<Tag>();
@@ -97,7 +97,9 @@ public class GEDInAndOut {
 						fams.get(currFamily).addChild(parsedTags.get(i).getArgs());
 						break;
 					case "MARR":
-						fams.get(currFamily).setMarried(parsedTags.get(i + 1).getArgs());
+						LocalDate husbBirth = indis.get(fams.get(currFamily).husbandID).birthday;
+						LocalDate wifeBirth = indis.get(fams.get(currFamily).wifeID).birthday;
+						fams.get(currFamily).setMarried(parsedTags.get(i + 1).getArgs(), husbBirth, wifeBirth);
 						break;
 					case "DIV":
 						fams.get(currFamily).setDivorced(parsedTags.get(i + 1).getArgs());
