@@ -119,7 +119,9 @@ public class Person {
 			if(!dateHelper.dateBeforeCurrentDate(this.death))
 				//errors.add("Death date for person " + id + " has not happened yet.");
 				errors.add("ERROR: INDIVIDUAL: US01: " + "15" + ": " + id + ": Death " + this.death + " occurs in the future");
-			if(this.birthday != null && dateHelper.birthDateBeforeDeathDate(this.birthday, this.death)) {
+			if(this.birthday == null)
+				errors.add("ERROR: INDIVIDUAL: US42: " + "59" + ": " + id + ": Birthday " + this.birthday + " is not a valid date");
+			else if(dateHelper.birthDateBeforeDeathDate(this.birthday, this.death)) {
 				this.age = dateHelper.calculateAge(this.alive, this.birthday, this.death);
 			} else {
 				//errors.add("Cannot calculate age for person " + id + ", birthday is after death date.");
