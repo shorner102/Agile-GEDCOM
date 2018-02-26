@@ -77,17 +77,23 @@ public class Family {
 	    if (married != null) {
 			this.marriageDate = dateHelper.parseDate(married);
 			if(!dateHelper.dateBeforeCurrentDate(this.marriageDate))
-				errors.add("Marriage date in family " + id + " has not happened yet.");
+				//errors.add("Marriage date in family " + id + " has not happened yet.");
+				errors.add("ERROR: FAMILY: US01: " + "76" + ": " + id + ": Marriage date " + this.marriageDate + " occurs in the future");
 			if(!dateHelper.birthDateBeforeMarriageDate(husband.getBirthday(), this.marriageDate))
-				errors.add("Date for marriage " + this.marriageDate + " is before husband's birthday " + husband.getBirthday());
+				//errors.add("Date for marriage " + this.marriageDate + " is before husband's birthday " + husband.getBirthday());
+				errors.add("ERROR: FAMILY: US02: " + "55" + ": " + id + ": Husband's birth date " + husband.getBirthday() + " following marriage date " + this.marriageDate);
 			if(!dateHelper.birthDateBeforeMarriageDate(wife.getBirthday(), this.marriageDate))
-				errors.add("Date for marriage " + this.marriageDate + " is before wife's birthday " + wife.getBirthday());
+				//errors.add("Date for marriage " + this.marriageDate + " is before wife's birthday " + wife.getBirthday());
+				errors.add("ERROR: FAMILY: US02: " + "12" + ": " + id + ": Wife's birth date " + wife.getBirthday() + " following marriage date " + this.marriageDate);
 			if(!dateHelper.marriageDateBeforeDeathDate(this.marriageDate, husband.getDeath()))
-				errors.add("Marriage date " + this.marriageDate + " in family " + id + " is after husband's death date.");
+				//errors.add("Marriage date " + this.marriageDate + " in family " + id + " is after husband's death date.");
+				errors.add("ERROR: FAMILY: US05: " + "13" + ": " + id + ": Married " + this.marriageDate + " after husband's (" + husband.getId() +") death on " + husband.getDeath());
 			if(!dateHelper.marriageDateBeforeDeathDate(this.marriageDate, wife.getDeath()))
-				errors.add("Marriage date " + this.marriageDate + " in family " + id + " is after wife's death date.");
+				//errors.add("Marriage date " + this.marriageDate + " in family " + id + " is after wife's death date.");
+				errors.add("ERROR: FAMILY: US05: " + "9" + ": " + id + ": Married " + this.marriageDate + " after wife's (" + wife.getId() + ") death on " + wife.getDeath());
 		} else {
-			errors.add("Marriage date for family " + id + " is not a valid date");
+			//errors.add("Marriage date for family " + id + " is not a valid date");
+			errors.add("ERROR: FAMILY: US42: " + "23" + ": " + id + ": Marriage date " + this.marriageDate + " is not a valid date");
 		}
 	}
 
@@ -99,11 +105,14 @@ public class Family {
 	    if (divorced != null)
 		    this.divorceDate = dateHelper.parseDate(divorced);
 	    if(this.divorceDate == null)
-	    	errors.add("Divorce date for family " + id + " is not a valid date");
+	    	//errors.add("Divorce date for family " + id + " is not a valid date");
+	    	errors.add("ERROR: FAMILY: US42: " + "76" + ": " + id + ": Divorce date " + this.divorceDate + " is not a valid date");
 	    else if(!dateHelper.dateBeforeCurrentDate(this.divorceDate))
-	    	errors.add("Divorce date in family " + id + " has not happened yet.");
+	    	//errors.add("Divorce date in family " + id + " has not happened yet.");
+	    	errors.add("ERROR: FAMILY: US01: " + "107" + ": " + id + ": Divorce date " + this.divorceDate + " occurs in the future");
 	    else if(!dateHelper.marriageDateBeforeDivorceDate(this.marriageDate, this.divorceDate))
-	    	errors.add("Divorce date in family " + id + " is before marriage date.");
+	    	//errors.add("Divorce date in family " + id + " is before marriage date.");
+	    	errors.add("ERROR: FAMILY: US04: " + "99" + ": " + id + ": Divorced " + this.divorceDate + " before married " + this.marriageDate);
 	}
 
 	public String getHusbandID() {
