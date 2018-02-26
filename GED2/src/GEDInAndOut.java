@@ -18,7 +18,7 @@ public class GEDInAndOut {
 		// String fileName = "proj02test.ged";
 		// String fileName = "Sydni_Horner-Project1.ged";
 		String fileName = "hapsburgtree.ged";
-		File f = new File("resources/" + fileName);
+		File f = new File("GED2/resources/" + fileName);
 		System.out.println(f.getAbsolutePath());
 
 		ArrayList<Tag> parsedTags = new ArrayList<Tag>();
@@ -100,7 +100,9 @@ public class GEDInAndOut {
 						fams.get(currFamily).addChild(parsedTags.get(i).getArgs());
 						break;
 					case "MARR":
-						fams.get(currFamily).setMarried(parsedTags.get(i + 1).getArgs());
+						Person husband = indis.get(fams.get(currFamily).husbandID);
+						Person wife = indis.get(fams.get(currFamily).wifeID);
+						fams.get(currFamily).setMarried(parsedTags.get(i + 1).getArgs(), husband, wife);
 						break;
 					case "DIV":
 						fams.get(currFamily).setDivorced(parsedTags.get(i + 1).getArgs());
@@ -160,9 +162,8 @@ public class GEDInAndOut {
 		System.out.println("\nErrors to fix in the GEDCOM files: ");
 		fams.forEach((k,v) -> printArrayList(v.getErrors()));
 		indis.forEach((k,v) -> printArrayList(v.getErrors()));
-		marriageDateBeforeDeathDate();
-		
 	}
+
 	public static int getLevel(String line) {
 		return Character.getNumericValue(line.charAt(0));
 	}
@@ -205,21 +206,6 @@ public class GEDInAndOut {
 		for(int i = 0 ; i < arr.size(); i ++) {
 			System.out.println(arr);
 		}
-	}
-
-	public static void marriageDateBeforeDeathDate() {
-		//for(int i = 0; i < people.size();i++) {
-		for(String i : indis.keySet()) {
-			//System.out.println(people.get(i));
-			if (!indis.get(i).isAlive() && indis.get(i).getSpouse() != null) {
-				if(getFamily(indis.get(i).getSpouse()).getMarried() == null)
-					System.out.println("Marriage date for person " + indis.get(i).getId() + " does not exist.");
-				else if (!getFamily(indis.get(i).getSpouse()).getMarried().isBefore(indis.get(i).getDeath()))
-					System.out.println("Marriage date for person " + indis.get(i).getId() + " is after the death date.");
-					
-			}			
-		}
-		
 	}
 	
 	public static Family getFamily(String id) {

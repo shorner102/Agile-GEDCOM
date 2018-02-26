@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
@@ -22,15 +23,13 @@ public class DateHelper {
 	}
 
 	public int calculateAge(boolean alive, LocalDate birthday, LocalDate death) {
-		int birthYear = birthday.getYear();
-		if (alive) {
-			int currYear = LocalDate.now().getYear();
-			return currYear - birthYear;
+		if (alive && birthday != null) {
+			return Period.between(birthday, LocalDate.now()).getYears();
+		} else if (!alive && birthday != null && death != null) {
+			return Period.between(birthday, death).getYears();
 		} else {
-			int deathYear = death.getYear();
-			return deathYear - birthYear;
+			return 0;
 		}
-
 	}
 
 	public boolean dateBeforeCurrentDate(LocalDate date) {
@@ -38,8 +37,24 @@ public class DateHelper {
 		return date.isBefore(currentDate);
 	}
 
-	public boolean marriageDateBeforeDivorceDate(LocalDate married, LocalDate divorced) {
+	public boolean marriageDateBeforeDivorceDate(LocalDate marriageDate, LocalDate divorceDate) {
+		return marriageDate.isBefore(divorceDate);
+	}
 
-		return married.isBefore(divorced);
+
+	public boolean birthDateBeforeMarriageDate(LocalDate birthday, LocalDate marriageDate) {
+		return birthday.isBefore(marriageDate);
+	}
+
+	public boolean birthDateBeforeDeathDate(LocalDate birthday, LocalDate deathDate) {
+		return birthday.isBefore(deathDate);
+	}
+
+	public boolean marriageDateBeforeDeathDate(LocalDate marriageDate, LocalDate deathDate) {
+		if (deathDate == null) {
+			return true;
+		} else {
+			return marriageDate.isBefore(deathDate);
+		}
 	}
 }

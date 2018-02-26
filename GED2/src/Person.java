@@ -114,13 +114,17 @@ public class Person {
 
 	public void setDeath(String death) {
 		this.death = dateHelper.parseDate(death);
-
-	    if(this.death == null) 
-    		errors.add("Death date for person " + id + " is not a valid date.");
-	    else if(!dateHelper.dateBeforeCurrentDate(this.death))
-    		errors.add("Death date for person " + id + " has not happened yet.");
-	    else if(this.birthday != null)
-	    	this.age = dateHelper.calculateAge(this.alive, this.birthday, this.death);
+		if(this.death != null) {
+			if(!dateHelper.dateBeforeCurrentDate(this.death))
+				errors.add("Death date for person " + id + " has not happened yet.");
+			if(this.birthday != null && dateHelper.birthDateBeforeDeathDate(this.birthday, this.death)) {
+				this.age = dateHelper.calculateAge(this.alive, this.birthday, this.death);
+			} else {
+				errors.add("Cannot calculate age for person " + id + ", birthday is after death date.");
+			}
+		} else {
+			errors.add("Death date for person " + id + " is not a valid date.");
+		}
 	}
 
 	public String getChild() {
