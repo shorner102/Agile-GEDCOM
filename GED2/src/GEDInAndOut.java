@@ -18,7 +18,7 @@ public class GEDInAndOut {
 		// String fileName = "proj02test.ged";
 		// String fileName = "Sydni_Horner-Project1.ged";
 		String fileName = "hapsburgtree.ged";
-		File f = new File("GED2/resources/" + fileName);
+		File f = new File("resources/" + fileName);
 		System.out.println(f.getAbsolutePath());
 
 		ArrayList<Tag> parsedTags = new ArrayList<Tag>();
