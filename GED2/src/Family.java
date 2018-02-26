@@ -73,13 +73,22 @@ public class Family {
 		return marriageDate;
 	}
 
-	public void setMarried(String married) {
-	    if (married != null)
-		    this.marriageDate = dateHelper.parseDate(married);
-	    if(this.marriageDate == null)
-	    	errors.add("Marriage date for family " + id + " is not a valid date");
-	    else if(!dateHelper.dateBeforeCurrentDate(this.marriageDate))
-	    	errors.add("Marriage date in family " + id + " has not happened yet.");
+	public void setMarried(String married, Person husband, Person wife) {
+	    if (married != null) {
+			this.marriageDate = dateHelper.parseDate(married);
+			if(!dateHelper.dateBeforeCurrentDate(this.marriageDate))
+				errors.add("Marriage date in family " + id + " has not happened yet.");
+			if(!dateHelper.birthDateBeforeMarriageDate(husband.getBirthday(), this.marriageDate))
+				errors.add("Date for marriage " + this.marriageDate + " is before husband's birthday " + husband.getBirthday());
+			if(!dateHelper.birthDateBeforeMarriageDate(wife.getBirthday(), this.marriageDate))
+				errors.add("Date for marriage " + this.marriageDate + " is before wife's birthday " + wife.getBirthday());
+			if(!dateHelper.marriageDateBeforeDeathDate(this.marriageDate, husband.getDeath()))
+				errors.add("Marriage date " + this.marriageDate + " in family " + id + " is after husband's death date.");
+			if(!dateHelper.marriageDateBeforeDeathDate(this.marriageDate, wife.getDeath()))
+				errors.add("Marriage date " + this.marriageDate + " in family " + id + " is after wife's death date.");
+		} else {
+			errors.add("Marriage date for family " + id + " is not a valid date");
+		}
 	}
 
 	public LocalDate getDivorced() {
@@ -140,10 +149,6 @@ public class Family {
 	public void addChild(String id) {
 		children.add(id);
 	}
-
-	
-	
-	
 
 	
 
