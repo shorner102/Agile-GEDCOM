@@ -6,6 +6,7 @@ public class Tag {
 	boolean special;
 	String args;
 	boolean valid;
+	int lineNumber;
 	
 	public boolean isValid() {
 		return valid;
@@ -19,13 +20,31 @@ public class Tag {
 		level = l;
 		tagName = t;
 		special = s;
+		
 	}
 	
-	public Tag(int l, String t, boolean s, String a) {
+	public Tag(int l, String t, boolean s, int ln) {
+		level = l;
+		tagName = t;
+		special = s;
+		lineNumber = ln;
+		
+	}
+
+	public Tag(int l, String t, boolean s, String a, int ln) {
 		level = l;
 		tagName = t;
 		special = s;
 		args = a;
+		lineNumber = ln;
+	}
+	
+	public int getLineNumber() {
+		return lineNumber;
+	}
+
+	public void setLineNumber(int lineNumber) {
+		this.lineNumber = lineNumber;
 	}
 
 	public boolean hasArgs() {

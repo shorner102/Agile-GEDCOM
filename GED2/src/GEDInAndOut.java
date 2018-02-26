@@ -13,6 +13,7 @@ public class GEDInAndOut {
 
 	static HashMap<String, Family> fams = new HashMap<>();
 	static HashMap<String, Person> indis = new HashMap<>();
+	static int lineNumber;
 
 	public static void main(String[] args) {
 		// String fileName = "proj02test.ged";
@@ -30,6 +31,7 @@ public class GEDInAndOut {
 		String line;
 		String currPerson = "";
 		String currFamily = "";
+		lineNumber = 1;
 		try {
 			FileReader fileReader = new FileReader(f);
 
@@ -45,6 +47,7 @@ public class GEDInAndOut {
 				tag.setValid(getValid(tag));
 				// System.out.println(tag);
 				parsedTags.add(tag);
+				lineNumber++;
 			}
 
 			bufferedReader.close();
@@ -71,11 +74,11 @@ public class GEDInAndOut {
 						indis.get(currPerson).setGender(parsedTags.get(i).getArgs());
 						break;
 					case "BIRT":
-						indis.get(currPerson).setBirthday(parsedTags.get(i + 1).getArgs());
+						indis.get(currPerson).setBirthday(parsedTags.get(i + 1).getArgs(), parsedTags.get(i).getLineNumber());
 						break;
 					case "DEAT":
 						indis.get(currPerson).setAlive(false);
-						indis.get(currPerson).setDeath(parsedTags.get(i + 1).getArgs());
+						indis.get(currPerson).setDeath(parsedTags.get(i + 1).getArgs(), parsedTags.get(i).getLineNumber());
 						break;
 					case "FAMC":
 						indis.get(currPerson).setChild(parsedTags.get(i).getArgs());
@@ -104,10 +107,10 @@ public class GEDInAndOut {
 					case "MARR":
 						Person husband = indis.get(fams.get(currFamily).husbandID);
 						Person wife = indis.get(fams.get(currFamily).wifeID);
-						fams.get(currFamily).setMarried(parsedTags.get(i + 1).getArgs(), husband, wife);
+						fams.get(currFamily).setMarried(parsedTags.get(i + 1).getArgs(), husband, wife, parsedTags.get(i).getLineNumber());
 						break;
 					case "DIV":
-						fams.get(currFamily).setDivorced(parsedTags.get(i + 1).getArgs());
+						fams.get(currFamily).setDivorced(parsedTags.get(i + 1).getArgs(), parsedTags.get(i).getLineNumber());
 					}
 
 				}
@@ -178,8 +181,8 @@ public class GEDInAndOut {
 		while (line.length() > count && line.charAt(count) != ' ')
 			count++;
 		if (count < line.length())
-			return new Tag(level, line.substring(2, count), false, line.substring(count + 1));
-		return new Tag(level, line.substring(2, count), false);
+			return new Tag(level, line.substring(2, count), false, line.substring(count + 1), lineNumber);
+		return new Tag(level, line.substring(2, count), false, lineNumber);
 	}
 
 	public static boolean getValid(Tag tag) {
@@ -201,7 +204,7 @@ public class GEDInAndOut {
 		while (line.charAt(count) != ' ')
 			count++;
 		String args = line.substring(2, count);
-		return new Tag(level, line.substring(count + 1), true, args);
+		return new Tag(level, line.substring(count + 1), true, args, lineNumber);
 	}
 	
 	public static void printArrayList(ArrayList<String> arr) {
