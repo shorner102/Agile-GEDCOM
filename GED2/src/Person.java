@@ -81,12 +81,12 @@ public class Person {
 		return birthday;
 	}
 
-	public void setBirthday(String birthday) {
+	public void setBirthday(String birthday, int lineNumber) {
 		this.birthday = dateHelper.parseDate(birthday);
 	    if(this.birthday == null) 
-    		errors.add("ERROR: INDIVIDUAL: US42: " + "10" + ": " + id + ": Birthday " + this.birthday + " is not a valid date");
+    		errors.add("ERROR: INDIVIDUAL: US42: " + lineNumber + ": " + id + ": Birthday " + this.birthday + " is not a valid date");
 	    else if(!dateHelper.dateBeforeCurrentDate(this.birthday))
-	    	errors.add("ERROR: INDIVIDUAL: US01: " + "36" + ": " + id + ": Birthday " + this.birthday + " occurs in the future");
+	    	errors.add("ERROR: INDIVIDUAL: US01: " + lineNumber + ": " + id + ": Birthday " + this.birthday + " occurs in the future");
 	    else
 	    	this.age = dateHelper.calculateAge(this.alive, this.birthday, this.death);
 	    
@@ -112,20 +112,19 @@ public class Person {
 		return death;
 	}
 
-	public void setDeath(String death) {
+	public void setDeath(String death, int lineNumber) {
 		this.death = dateHelper.parseDate(death);
 		if(this.death != null) {
 			if(!dateHelper.dateBeforeCurrentDate(this.death))
-				errors.add("ERROR: INDIVIDUAL: US01: " + "15" + ": " + id + ": Death " + this.death + " occurs in the future");
+				errors.add("ERROR: INDIVIDUAL: US01: " + lineNumber + ": " + id + ": Death " + this.death + " occurs in the future");
 			if(this.birthday == null)
-				errors.add("ERROR: INDIVIDUAL: US42: " + "59" + ": " + id + ": Birthday " + this.birthday + " is not a valid date");
+				errors.add("ERROR: INDIVIDUAL: US42: " + lineNumber + ": " + id + ": Birthday " + this.birthday + " is not a valid date");
 			else if(dateHelper.birthDateBeforeDeathDate(this.birthday, this.death)) {
 				this.age = dateHelper.calculateAge(this.alive, this.birthday, this.death);
-			} else {
-				errors.add("ERROR: INDIVIDUAL: US03: " + "54" + ": " + id + ": Died " + this.death + " before born " + this.birthday);
+				errors.add("ERROR: INDIVIDUAL: US03: " + lineNumber + ": " + id + ": Died " + this.death + " before born " + this.birthday);
 			}
 		} else {
-			errors.add("ERROR: INDIVIDUAL: US42: " + "23" + ": " + id + ": Death " + this.death + " is not a valid date");
+			errors.add("ERROR: INDIVIDUAL: US42: " + lineNumber + ": " + id + ": Death " + this.death + " is not a valid date");
 		}
 	}
 	
