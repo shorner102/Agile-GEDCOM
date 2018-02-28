@@ -86,6 +86,12 @@ public class Family {
 				errors.add("ERROR: FAMILY: US05: " + lineNumber + ": " + id + ": Married " + this.marriageDate + " after husband's (" + husband.getId() +") death on " + husband.getDeath());
 			if(!dateHelper.marriageDateBeforeDeathDate(this.marriageDate, wife.getDeath()))
 				errors.add("ERROR: FAMILY: US05: " + lineNumber + ": " + id + ": Married " + this.marriageDate + " after wife's (" + wife.getId() + ") death on " + wife.getDeath());
+			if(!dateHelper.marriageAfter14(this.marriageDate, wife.getBirthday()))
+				errors.add("ERROR: FAMILY: US10: " + lineNumber + ": " + id + ":  " + wife.getId() + " got married before she was 14");
+			if(!dateHelper.marriageAfter14(this.marriageDate, husband.getBirthday()))
+				errors.add("ERROR: FAMILY: US10: " + lineNumber + ": " + id + ":  " + husband.getId() + " got married before he was 14");
+			if(!siblingsNotMarried(wife, husband))
+				errors.add("ERROR: FAMILY: US18: " + lineNumber + ": " + husband.getId() + " cannot be married to " + wife.getId() + " because they are siblings");
 		} else {
 			errors.add("ERROR: FAMILY: US42: " + lineNumber + ": " + id + ": Marriage date " + this.marriageDate + " is not a valid date");
 		}
@@ -149,4 +155,10 @@ public class Family {
 	public void addChild(String id) {
 		children.add(id);
 	}
+
+	public boolean siblingsNotMarried(Person wife, Person husband) {
+		
+		return !husband.getChild().equals(wife.getChild());
+	}
+
 }

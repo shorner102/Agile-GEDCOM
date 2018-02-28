@@ -110,4 +110,48 @@ class DateHelperTest {
         LocalDate death = dateHelper.parseDate("10 OCT 1999");
         assertTrue(dateHelper.marriageDateBeforeDeathDate(married, death));
     }
+    
+    @Test
+    void marriageAfter14Success() {
+        LocalDate married = dateHelper.parseDate("5 JUL 1950");
+        LocalDate birthday = dateHelper.parseDate("7 AUG 1920");
+        assertTrue(dateHelper.marriageAfter14(married, birthday));
+    }
+
+    @Test
+    void marriageAfter14Failure() {
+        LocalDate married = dateHelper.parseDate("5 JUL 1950");
+        LocalDate birthday = dateHelper.parseDate("7 AUG 1945");
+        assertFalse(dateHelper.marriageAfter14(married, birthday));
+    }
+    
+    @Test
+    void siblingsNotMarried() {
+    	Person wife = new Person();
+    	wife.setChild("@F2@");
+    	wife.setId("@I6");
+    	Person husband = new Person();
+    	husband.setChild("@F3@");
+    	husband.setId("@I8");
+    	Family f = new Family();
+    	f.setHusbandID(husband.getId());
+    	f.setWifeID(wife.getId());
+    	assertTrue(f.siblingsNotMarried(wife, husband));
+    }
+    
+    @Test
+    void siblingsMarried() {
+    	Person wife = new Person();
+    	wife.setChild("@F2@");
+    	wife.setId("@I6");
+    	Person husband = new Person();
+    	husband.setChild("@F2@");
+    	husband.setId("@I8");
+    	Family f = new Family();
+    	f.setHusbandID(husband.getId());
+    	f.setWifeID(wife.getId());
+    	assertFalse(f.siblingsNotMarried(wife, husband));
+    }
+    
+    
 }
