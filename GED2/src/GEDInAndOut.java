@@ -110,7 +110,9 @@ public class GEDInAndOut {
 						fams.get(currFamily).setMarried(parsedTags.get(i + 1).getArgs(), husband, wife, parsedTags.get(i).getLineNumber());
 						break;
 					case "DIV":
-						fams.get(currFamily).setDivorced(parsedTags.get(i + 1).getArgs(), parsedTags.get(i).getLineNumber());
+						Person husband1 = indis.get(fams.get(currFamily).husbandID);
+						Person wife1 = indis.get(fams.get(currFamily).wifeID);
+						fams.get(currFamily).setDivorced(parsedTags.get(i + 1).getArgs(), husband1, wife1, parsedTags.get(i).getLineNumber());
 					}
 
 				}
@@ -122,6 +124,7 @@ public class GEDInAndOut {
 
 		printPeople();
 		printFamilies();
+		printDeceased();
 		printErrors();
 
 	}
@@ -162,6 +165,26 @@ public class GEDInAndOut {
 		System.out.println(
 				"+-------+-----------------+-----------------+------------+--------------------------------+------------+--------------------------------+--------------------------------+");
 	}
+	
+	public static void printDeceased() {
+
+		
+		System.out.println("Deceased");
+		System.out.println(
+				"+-------+--------------------------------+-----------------+");
+		System.out.println(
+				"|  ID   |             Name               |      Death      |");
+		System.out.println(
+				"+-------+--------------------------------+-----------------+");
+
+		indis.forEach((k, v) -> System.out.format("| %5s | %30s | %15s |\n",
+				v.getId(), v.getName(), v.getDeath()));
+
+		System.out.println(
+				"+-------+--------------------------------+-----------------+");
+
+	}
+
 
 	public static void printErrors() {
 		System.out.println("\nErrors to fix in the GEDCOM files: ");

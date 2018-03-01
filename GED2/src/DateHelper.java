@@ -58,6 +58,14 @@ public class DateHelper {
 		}
 	}
 	
+	public boolean divorceDateBeforeDeathDate(LocalDate divorceDate, LocalDate deathDate) {
+		if (deathDate == null) {
+			return true;
+		} else {
+			return divorceDate.isBefore(deathDate);
+		}
+	}
+	
 	public boolean marriageAfter14(LocalDate marriageDate, LocalDate birthday) {
 		int year = birthday.getYear() + 14;
 		LocalDate dateof14thBday = parseDate("20 SEP " + year);
