@@ -20,7 +20,7 @@ public class GEDInAndOut {
 		String fileName = "hapsburgtree.ged";
 
 		//File f = new File("GED2/resources/" + fileName); 
-		File f = new File("GED2/resources/" + fileName); //leave this line of code in for syd and cass
+		File f = new File("resources/" + fileName); //leave this line of code in for syd and cass
 		System.out.println(f.getAbsolutePath());
 
 		ArrayList<Tag> parsedTags = new ArrayList<Tag>();
@@ -244,5 +244,17 @@ public class GEDInAndOut {
 		}
 		return null;
 	}
+	
+/*	//Next 30 days
+	public static void listUpcomingBirthdays() {
+		LocalDate
+		for(String i : indis.keySet()) {
+		}
+	}
+	
+	//Next 30 days
+	public static void listUpcomingAnniversaries() {
+		
+	}*/
 
 }

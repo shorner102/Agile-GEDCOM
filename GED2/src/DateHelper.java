@@ -67,8 +67,7 @@ public class DateHelper {
 	}
 	
 	public boolean marriageAfter14(LocalDate marriageDate, LocalDate birthday) {
-		int year = birthday.getYear() + 14;
-		LocalDate dateof14thBday = parseDate("20 SEP " + year);
+		LocalDate dateof14thBday = birthday.plusYears(14);
 		return marriageDate.isAfter(dateof14thBday);
 		
 	}
