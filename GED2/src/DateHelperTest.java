@@ -152,6 +152,13 @@ class DateHelperTest {
     	f.setWifeID(wife.getId());
     	assertFalse(f.siblingsNotMarried(wife, husband));
     }
+
+    @Test
+    void individualAgeOver150() {
+        Person ind = new Person("A");
+        ind.setBirthday("10 AUG 1800", 1);
+        assertEquals(0, ind.getAge());
+    }
     
     
 }

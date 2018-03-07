@@ -1,5 +1,4 @@
 import java.io.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -21,7 +20,7 @@ public class GEDInAndOut {
 		String fileName = "hapsburgtree.ged";
 
 		//File f = new File("GED2/resources/" + fileName); 
-		File f = new File("resources/" + fileName); //leave this line of code in for syd and cass
+		File f = new File("GED2/resources/" + fileName); //leave this line of code in for syd and cass
 		System.out.println(f.getAbsolutePath());
 
 		ArrayList<Tag> parsedTags = new ArrayList<Tag>();
