@@ -71,4 +71,13 @@ public class DateHelper {
 		return marriageDate.isAfter(dateof14thBday);
 		
 	}
+	
+	public boolean monthDayInTheNext30Days(LocalDate date) {
+		LocalDate thirtyDaysFromToday = LocalDate.now().plusDays(30);
+		LocalDate dateToThisYear = date.withYear(LocalDate.now().getYear());
+		return dateToThisYear.isBefore(thirtyDaysFromToday) && dateToThisYear.isAfter(LocalDate.now());
+
+	}
+	
+
 }

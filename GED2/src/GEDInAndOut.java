@@ -13,6 +13,7 @@ public class GEDInAndOut {
 	static HashMap<String, Family> fams = new HashMap<>();
 	static HashMap<String, Person> indis = new HashMap<>();
 	static int lineNumber;
+	static DateHelper dateHelper = new DateHelper();
 
 	public static void main(String[] args) {
 		// String fileName = "proj02test.ged";
@@ -124,6 +125,8 @@ public class GEDInAndOut {
 		printPeople();
 		printFamilies();
 		printDeceased();
+		listUpcomingBirthdays();
+		listUpcomingAnniversaries();
 		printErrors();
 
 	}
@@ -245,16 +248,24 @@ public class GEDInAndOut {
 		return null;
 	}
 	
-/*	//Next 30 days
+	//Next 30 days
 	public static void listUpcomingBirthdays() {
-		LocalDate
+		System.out.println("Birthdays in the next 30 days:" );
 		for(String i : indis.keySet()) {
+			if(indis.get(i).getBirthday() != null && dateHelper.monthDayInTheNext30Days(indis.get(i).getBirthday()))
+					System.out.println(indis.get(i).getId() + ", " + indis.get(i).getName() + ", " + indis.get(i).getBirthday());
 		}
+		System.out.println();
 	}
 	
 	//Next 30 days
 	public static void listUpcomingAnniversaries() {
-		
-	}*/
+		System.out.println("Anniversaries in the next 30 days:" );
+		for(String i : fams.keySet()) {
+			if(fams.get(i).getMarried() != null &&dateHelper.monthDayInTheNext30Days(fams.get(i).getMarried()))
+					System.out.println(fams.get(i).getId() + ", " + fams.get(i).getWifeName() + " and " + fams.get(i).getHusbandName() + ", " + fams.get(i).getMarried());
+		}
+		System.out.println();
+	}
 
 }

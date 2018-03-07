@@ -160,5 +160,24 @@ class DateHelperTest {
         assertEquals(0, ind.getAge());
     }
     
+    @Test 
+    void monthDayInTheNext30Days(){
+        LocalDate date = dateHelper.parseDate("15 MAR 1950");
+        assertTrue(dateHelper.monthDayInTheNext30Days(date));
+    }
+    
+    @Test 
+    void monthDayNotInTheNext30Days1(){
+        LocalDate date = dateHelper.parseDate("15 SEP 1950");
+        assertFalse(dateHelper.monthDayInTheNext30Days(date));
+    }
+    
+    @Test 
+    void monthDayNotInTheNext30Days2(){
+        LocalDate date = dateHelper.parseDate("6 MAR 1950");
+        assertFalse(dateHelper.monthDayInTheNext30Days(date));
+    }
+    
+    
     
 }
