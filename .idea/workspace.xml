@@ -12,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GEDInAndOut.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GEDInAndOut.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GED2/src/GEDInAndOut.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1836">
-              <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+            <state relative-caret-position="646">
+              <caret line="38" column="22" lean-forward="true" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -27,54 +27,10 @@
       <file leaf-file-name="Family.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GED2/src/Family.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="91" column="5" lean-forward="true" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+            <state relative-caret-position="1241">
+              <caret line="91" column="4" lean-forward="false" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2856#2857#0" expanded="true" />
-                <element signature="e#2881#2882#0" expanded="true" />
-                <element signature="e#3473#3474#0" expanded="true" />
-                <element signature="e#3496#3497#0" expanded="true" />
-                <element signature="e#3543#3544#0" expanded="true" />
-                <element signature="e#3576#3577#0" expanded="true" />
-                <element signature="e#3611#3612#0" expanded="true" />
-                <element signature="e#3636#3637#0" expanded="true" />
-                <element signature="e#3687#3688#0" expanded="true" />
-                <element signature="e#3724#3725#0" expanded="true" />
-                <element signature="e#3754#3755#0" expanded="true" />
-                <element signature="e#3774#3775#0" expanded="true" />
-                <element signature="e#3815#3816#0" expanded="true" />
-                <element signature="e#3842#3843#0" expanded="true" />
-                <element signature="e#3874#3875#0" expanded="true" />
-                <element signature="e#3896#3897#0" expanded="true" />
-                <element signature="e#3941#3942#0" expanded="true" />
-                <element signature="e#3972#3973#0" expanded="true" />
-                <element signature="e#4015#4016#0" expanded="true" />
-                <element signature="e#4037#4038#0" expanded="true" />
-                <element signature="e#4093#4094#0" expanded="true" />
-                <element signature="e#4124#4125#0" expanded="true" />
-                <element signature="e#4161#4162#0" expanded="true" />
-                <element signature="e#4184#4185#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Person.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GED2/src/Person.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-578">
-              <caret line="17" column="15" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3074#3075#0" expanded="true" />
-                <element signature="e#3093#3094#0" expanded="true" />
-                <element signature="e#3132#3133#0" expanded="true" />
-                <element signature="e#3157#3158#0" expanded="true" />
-                <element signature="e#3187#3188#0" expanded="true" />
-                <element signature="e#3207#3208#0" expanded="true" />
-                <element signature="e#3248#3249#0" expanded="true" />
-                <element signature="e#3275#3276#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,7 +39,7 @@
       <file leaf-file-name="DateHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GED2/src/DateHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
+            <state relative-caret-position="816">
               <caret line="52" column="25" lean-forward="false" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
               <folding />
             </state>
@@ -93,12 +49,42 @@
       <file leaf-file-name="DateHelperTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GED2/src/DateHelperTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="96" column="61" lean-forward="true" selection-start-line="96" selection-start-column="61" selection-end-line="96" selection-end-column="61" />
+            <state relative-caret-position="1476">
+              <caret line="160" column="5" lean-forward="true" selection-start-line="160" selection-start-column="5" selection-end-line="160" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#695#696#0" expanded="true" />
                 <element signature="e#769#770#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Person.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GED2/src/Person.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="93" column="35" lean-forward="true" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2520#2521#0" expanded="true" />
+                <element signature="e#2537#2538#0" expanded="true" />
+                <element signature="e#2569#2570#0" expanded="true" />
+                <element signature="e#2590#2591#0" expanded="true" />
+                <element signature="e#2619#2620#0" expanded="true" />
+                <element signature="e#2638#2639#0" expanded="true" />
+                <element signature="e#2678#2679#0" expanded="true" />
+                <element signature="e#2703#2704#0" expanded="true" />
+                <element signature="e#2735#2736#0" expanded="true" />
+                <element signature="e#2754#2755#0" expanded="true" />
+                <element signature="e#3670#3671#0" expanded="true" />
+                <element signature="e#3689#3690#0" expanded="true" />
+                <element signature="e#3728#3729#0" expanded="true" />
+                <element signature="e#3753#3754#0" expanded="true" />
+                <element signature="e#3783#3784#0" expanded="true" />
+                <element signature="e#3803#3804#0" expanded="true" />
+                <element signature="e#3844#3845#0" expanded="true" />
+                <element signature="e#3871#3872#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -126,10 +112,12 @@
         <option value="$PROJECT_DIR$/GED2/resources/hapsburgtree.ged" />
         <option value="$PROJECT_DIR$/GED2/src/Test.java" />
         <option value="$PROJECT_DIR$/GED2/src/FamilyTest.java" />
-        <option value="$PROJECT_DIR$/GED2/src/Person.java" />
         <option value="$PROJECT_DIR$/GED2/src/Family.java" />
-        <option value="$PROJECT_DIR$/GED2/src/GEDInAndOut.java" />
         <option value="$PROJECT_DIR$/GED2/src/DateHelper.java" />
+        <option value="$PROJECT_DIR$/GED2/src/GEDInAndOut.java" />
+        <option value="$PROJECT_DIR$/GED2/.gitignore" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/GED2/src/Person.java" />
         <option value="$PROJECT_DIR$/GED2/src/DateHelperTest.java" />
       </list>
     </option>
@@ -154,7 +142,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Agile-GEDCOM" type="58d84e3e:PackageViewProjectNode" />
+              <item name="GED2" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -176,18 +175,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Agile-GEDCOM" type="58d84e3e:PackageViewProjectNode" />
-              <item name="GED2" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -282,14 +270,14 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="DateHelperTest.birthDateBeforeDeathDateTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DateHelperTest.individualAgeOver150" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="GED2" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="DateHelperTest" />
-      <option name="METHOD_NAME" value="birthDateBeforeDeathDateTrue" />
+      <option name="METHOD_NAME" value="individualAgeOver150" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -400,19 +388,19 @@
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.DateHelperTest.birthDateBeforeDeathDateTrue" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.DateHelperTest.birthDateBeforeDeathDateFalse" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.DateHelperTest.marriageDateBeforeDeathDateAlive" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.DateHelperTest.marriageDateBeforeDeathDateDead" />
-      <item index="4" class="java.lang.String" itemvalue="Application.GEDInAndOut" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.DateHelperTest.birthDateBeforeDeathDateFalse" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.DateHelperTest.marriageDateBeforeDeathDateAlive" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.DateHelperTest.marriageDateBeforeDeathDateDead" />
+      <item index="3" class="java.lang.String" itemvalue="Application.GEDInAndOut" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.DateHelperTest.individualAgeOver150" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.GEDInAndOut" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DateHelperTest.marriageDateBeforeDeathDateDead" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.DateHelperTest.marriageDateBeforeDeathDateAlive" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.DateHelperTest.birthDateBeforeDeathDateFalse" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.DateHelperTest.birthDateBeforeDeathDateTrue" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.DateHelperTest.individualAgeOver150" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.DateHelperTest.marriageDateBeforeDeathDateDead" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.DateHelperTest.marriageDateBeforeDeathDateAlive" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.DateHelperTest.birthDateBeforeDeathDateFalse" />
       </list>
     </recent_temporary>
   </component>
@@ -420,23 +408,23 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="TestHistory">
-    <history-entry file="DateHelperTest_birthDateBeforeDeathDateFalse - 2018.02.25 at 20h 09m 11s.xml">
-      <configuration name="DateHelperTest.birthDateBeforeDeathDateFalse" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DateHelperTest_birthDateBeforeDeathDateTrue - 2018.02.25 at 20h 08m 50s.xml">
-      <configuration name="DateHelperTest.birthDateBeforeDeathDateTrue" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DateHelperTest_birthDateBeforeMarriageDateFalse - 2018.02.25 at 20h 06m 51s.xml">
-      <configuration name="DateHelperTest.birthDateBeforeMarriageDateFalse" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DateHelperTest_birthDateBeforeMarriageDateTrue - 2018.02.25 at 20h 06m 20s.xml">
-      <configuration name="DateHelperTest.birthDateBeforeMarriageDateTrue" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DateHelperTest_dateBeforeCurrentDateFalse - 2018.02.25 at 19h 58m 03s.xml">
-      <configuration name="DateHelperTest.dateBeforeCurrentDateFalse" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DateHelperTest_dateBeforeCurrentDateTrue - 2018.02.25 at 19h 57m 40s.xml">
       <configuration name="DateHelperTest.dateBeforeCurrentDateTrue" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DateHelperTest_individualAgeOver150 - 2018.03.06 at 19h 04m 40s.xml">
+      <configuration name="DateHelperTest.individualAgeOver150" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DateHelperTest_individualAgeOver150 - 2018.03.06 at 19h 07m 41s.xml">
+      <configuration name="DateHelperTest.individualAgeOver150" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DateHelperTest_individualAgeOver150 - 2018.03.06 at 19h 17m 26s.xml">
+      <configuration name="DateHelperTest.individualAgeOver150" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DateHelperTest_individualAgeOver150 - 2018.03.06 at 19h 19m 36s.xml">
+      <configuration name="DateHelperTest.individualAgeOver150" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DateHelperTest_individualAgeOver150 - 2018.03.06 at 19h 20m 03s.xml">
+      <configuration name="DateHelperTest.individualAgeOver150" configurationId="JUnit" />
     </history-entry>
     <history-entry file="DateHelperTest_marriageDateBeforeDeathDateAlive - 2018.02.25 at 20h 26m 07s.xml">
       <configuration name="DateHelperTest.marriageDateBeforeDeathDateAlive" configurationId="JUnit" />
@@ -461,8 +449,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843894" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21638331" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4969088" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35846725" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -483,6 +471,74 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/GED2/src/GEDInAndOut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GED2/src/Family.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="91" column="5" lean-forward="true" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GED2/src/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="17" column="15" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2520#2521#0" expanded="true" />
+            <element signature="e#2537#2538#0" expanded="true" />
+            <element signature="e#2569#2570#0" expanded="true" />
+            <element signature="e#2590#2591#0" expanded="true" />
+            <element signature="e#2619#2620#0" expanded="true" />
+            <element signature="e#2638#2639#0" expanded="true" />
+            <element signature="e#2678#2679#0" expanded="true" />
+            <element signature="e#2703#2704#0" expanded="true" />
+            <element signature="e#2735#2736#0" expanded="true" />
+            <element signature="e#2754#2755#0" expanded="true" />
+            <element signature="e#3670#3671#0" expanded="true" />
+            <element signature="e#3689#3690#0" expanded="true" />
+            <element signature="e#3728#3729#0" expanded="true" />
+            <element signature="e#3753#3754#0" expanded="true" />
+            <element signature="e#3783#3784#0" expanded="true" />
+            <element signature="e#3803#3804#0" expanded="true" />
+            <element signature="e#3844#3845#0" expanded="true" />
+            <element signature="e#3871#3872#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GED2/src/DateHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="52" column="25" lean-forward="false" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GED2/src/DateHelperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="96" column="61" lean-forward="true" selection-start-line="96" selection-start-column="61" selection-end-line="96" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#695#696#0" expanded="true" />
+            <element signature="e#769#770#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GED2/src/GEDInAndOut.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -507,14 +563,24 @@
           <caret line="133" column="31" lean-forward="true" selection-start-line="133" selection-start-column="31" selection-end-line="133" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3074#3075#0" expanded="true" />
-            <element signature="e#3093#3094#0" expanded="true" />
-            <element signature="e#3132#3133#0" expanded="true" />
-            <element signature="e#3157#3158#0" expanded="true" />
-            <element signature="e#3187#3188#0" expanded="true" />
-            <element signature="e#3207#3208#0" expanded="true" />
-            <element signature="e#3248#3249#0" expanded="true" />
-            <element signature="e#3275#3276#0" expanded="true" />
+            <element signature="e#2520#2521#0" expanded="true" />
+            <element signature="e#2537#2538#0" expanded="true" />
+            <element signature="e#2569#2570#0" expanded="true" />
+            <element signature="e#2590#2591#0" expanded="true" />
+            <element signature="e#2619#2620#0" expanded="true" />
+            <element signature="e#2638#2639#0" expanded="true" />
+            <element signature="e#2678#2679#0" expanded="true" />
+            <element signature="e#2703#2704#0" expanded="true" />
+            <element signature="e#2735#2736#0" expanded="true" />
+            <element signature="e#2754#2755#0" expanded="true" />
+            <element signature="e#3670#3671#0" expanded="true" />
+            <element signature="e#3689#3690#0" expanded="true" />
+            <element signature="e#3728#3729#0" expanded="true" />
+            <element signature="e#3753#3754#0" expanded="true" />
+            <element signature="e#3783#3784#0" expanded="true" />
+            <element signature="e#3803#3804#0" expanded="true" />
+            <element signature="e#3844#3845#0" expanded="true" />
+            <element signature="e#3871#3872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -525,30 +591,6 @@
           <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2856#2857#0" expanded="true" />
-            <element signature="e#2881#2882#0" expanded="true" />
-            <element signature="e#3473#3474#0" expanded="true" />
-            <element signature="e#3496#3497#0" expanded="true" />
-            <element signature="e#3543#3544#0" expanded="true" />
-            <element signature="e#3576#3577#0" expanded="true" />
-            <element signature="e#3611#3612#0" expanded="true" />
-            <element signature="e#3636#3637#0" expanded="true" />
-            <element signature="e#3687#3688#0" expanded="true" />
-            <element signature="e#3724#3725#0" expanded="true" />
-            <element signature="e#3754#3755#0" expanded="true" />
-            <element signature="e#3774#3775#0" expanded="true" />
-            <element signature="e#3815#3816#0" expanded="true" />
-            <element signature="e#3842#3843#0" expanded="true" />
-            <element signature="e#3874#3875#0" expanded="true" />
-            <element signature="e#3896#3897#0" expanded="true" />
-            <element signature="e#3941#3942#0" expanded="true" />
-            <element signature="e#3972#3973#0" expanded="true" />
-            <element signature="e#4015#4016#0" expanded="true" />
-            <element signature="e#4037#4038#0" expanded="true" />
-            <element signature="e#4093#4094#0" expanded="true" />
-            <element signature="e#4124#4125#0" expanded="true" />
-            <element signature="e#4161#4162#0" expanded="true" />
-            <element signature="e#4184#4185#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -577,14 +619,24 @@
           <caret line="66" column="34" lean-forward="false" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3074#3075#0" expanded="true" />
-            <element signature="e#3093#3094#0" expanded="true" />
-            <element signature="e#3132#3133#0" expanded="true" />
-            <element signature="e#3157#3158#0" expanded="true" />
-            <element signature="e#3187#3188#0" expanded="true" />
-            <element signature="e#3207#3208#0" expanded="true" />
-            <element signature="e#3248#3249#0" expanded="true" />
-            <element signature="e#3275#3276#0" expanded="true" />
+            <element signature="e#2520#2521#0" expanded="true" />
+            <element signature="e#2537#2538#0" expanded="true" />
+            <element signature="e#2569#2570#0" expanded="true" />
+            <element signature="e#2590#2591#0" expanded="true" />
+            <element signature="e#2619#2620#0" expanded="true" />
+            <element signature="e#2638#2639#0" expanded="true" />
+            <element signature="e#2678#2679#0" expanded="true" />
+            <element signature="e#2703#2704#0" expanded="true" />
+            <element signature="e#2735#2736#0" expanded="true" />
+            <element signature="e#2754#2755#0" expanded="true" />
+            <element signature="e#3670#3671#0" expanded="true" />
+            <element signature="e#3689#3690#0" expanded="true" />
+            <element signature="e#3728#3729#0" expanded="true" />
+            <element signature="e#3753#3754#0" expanded="true" />
+            <element signature="e#3783#3784#0" expanded="true" />
+            <element signature="e#3803#3804#0" expanded="true" />
+            <element signature="e#3844#3845#0" expanded="true" />
+            <element signature="e#3871#3872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -595,30 +647,6 @@
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2856#2857#0" expanded="true" />
-            <element signature="e#2881#2882#0" expanded="true" />
-            <element signature="e#3473#3474#0" expanded="true" />
-            <element signature="e#3496#3497#0" expanded="true" />
-            <element signature="e#3543#3544#0" expanded="true" />
-            <element signature="e#3576#3577#0" expanded="true" />
-            <element signature="e#3611#3612#0" expanded="true" />
-            <element signature="e#3636#3637#0" expanded="true" />
-            <element signature="e#3687#3688#0" expanded="true" />
-            <element signature="e#3724#3725#0" expanded="true" />
-            <element signature="e#3754#3755#0" expanded="true" />
-            <element signature="e#3774#3775#0" expanded="true" />
-            <element signature="e#3815#3816#0" expanded="true" />
-            <element signature="e#3842#3843#0" expanded="true" />
-            <element signature="e#3874#3875#0" expanded="true" />
-            <element signature="e#3896#3897#0" expanded="true" />
-            <element signature="e#3941#3942#0" expanded="true" />
-            <element signature="e#3972#3973#0" expanded="true" />
-            <element signature="e#4015#4016#0" expanded="true" />
-            <element signature="e#4037#4038#0" expanded="true" />
-            <element signature="e#4093#4094#0" expanded="true" />
-            <element signature="e#4124#4125#0" expanded="true" />
-            <element signature="e#4161#4162#0" expanded="true" />
-            <element signature="e#4184#4185#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -627,7 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2394">
           <caret line="133" column="15" lean-forward="false" selection-start-line="133" selection-start-column="15" selection-end-line="133" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -662,14 +689,24 @@
           <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3074#3075#0" expanded="true" />
-            <element signature="e#3093#3094#0" expanded="true" />
-            <element signature="e#3132#3133#0" expanded="true" />
-            <element signature="e#3157#3158#0" expanded="true" />
-            <element signature="e#3187#3188#0" expanded="true" />
-            <element signature="e#3207#3208#0" expanded="true" />
-            <element signature="e#3248#3249#0" expanded="true" />
-            <element signature="e#3275#3276#0" expanded="true" />
+            <element signature="e#2520#2521#0" expanded="true" />
+            <element signature="e#2537#2538#0" expanded="true" />
+            <element signature="e#2569#2570#0" expanded="true" />
+            <element signature="e#2590#2591#0" expanded="true" />
+            <element signature="e#2619#2620#0" expanded="true" />
+            <element signature="e#2638#2639#0" expanded="true" />
+            <element signature="e#2678#2679#0" expanded="true" />
+            <element signature="e#2703#2704#0" expanded="true" />
+            <element signature="e#2735#2736#0" expanded="true" />
+            <element signature="e#2754#2755#0" expanded="true" />
+            <element signature="e#3670#3671#0" expanded="true" />
+            <element signature="e#3689#3690#0" expanded="true" />
+            <element signature="e#3728#3729#0" expanded="true" />
+            <element signature="e#3753#3754#0" expanded="true" />
+            <element signature="e#3783#3784#0" expanded="true" />
+            <element signature="e#3803#3804#0" expanded="true" />
+            <element signature="e#3844#3845#0" expanded="true" />
+            <element signature="e#3871#3872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -692,7 +729,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2132">
           <caret line="133" column="15" lean-forward="false" selection-start-line="133" selection-start-column="15" selection-end-line="133" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -704,30 +740,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GED2/src/GEDInAndOutTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/GED2/src/GEDInAndOutTest.java" />
     <entry file="file://$PROJECT_DIR$/GED2/resources/test.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GED2/src/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/GED2/src/Test.java" />
     <entry file="file://$PROJECT_DIR$/GED2/src/FamilyTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -736,28 +757,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GED2/src/Person.java">
+    <entry file="file://$PROJECT_DIR$/GED2/src/Family.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-578">
-          <caret line="17" column="15" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="15" />
+        <state relative-caret-position="1241">
+          <caret line="91" column="4" lean-forward="false" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3074#3075#0" expanded="true" />
-            <element signature="e#3093#3094#0" expanded="true" />
-            <element signature="e#3132#3133#0" expanded="true" />
-            <element signature="e#3157#3158#0" expanded="true" />
-            <element signature="e#3187#3188#0" expanded="true" />
-            <element signature="e#3207#3208#0" expanded="true" />
-            <element signature="e#3248#3249#0" expanded="true" />
-            <element signature="e#3275#3276#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GED2/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GED2/src/DateHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="52" column="25" lean-forward="false" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GED2/src/GEDInAndOut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="22" lean-forward="true" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GED2/src/DateHelperTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="96" column="61" lean-forward="true" selection-start-line="96" selection-start-column="61" selection-end-line="96" selection-end-column="61" />
+        <state relative-caret-position="1476">
+          <caret line="160" column="5" lean-forward="true" selection-start-line="160" selection-start-column="5" selection-end-line="160" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#695#696#0" expanded="true" />
@@ -766,54 +813,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GED2/src/DateHelper.java">
+    <entry file="file://$PROJECT_DIR$/GED2/src/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="52" column="25" lean-forward="false" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GED2/src/Family.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="91" column="5" lean-forward="true" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+        <state relative-caret-position="442">
+          <caret line="93" column="35" lean-forward="true" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2856#2857#0" expanded="true" />
-            <element signature="e#2881#2882#0" expanded="true" />
-            <element signature="e#3473#3474#0" expanded="true" />
-            <element signature="e#3496#3497#0" expanded="true" />
-            <element signature="e#3543#3544#0" expanded="true" />
-            <element signature="e#3576#3577#0" expanded="true" />
-            <element signature="e#3611#3612#0" expanded="true" />
-            <element signature="e#3636#3637#0" expanded="true" />
-            <element signature="e#3687#3688#0" expanded="true" />
-            <element signature="e#3724#3725#0" expanded="true" />
-            <element signature="e#3754#3755#0" expanded="true" />
-            <element signature="e#3774#3775#0" expanded="true" />
-            <element signature="e#3815#3816#0" expanded="true" />
-            <element signature="e#3842#3843#0" expanded="true" />
-            <element signature="e#3874#3875#0" expanded="true" />
-            <element signature="e#3896#3897#0" expanded="true" />
-            <element signature="e#3941#3942#0" expanded="true" />
-            <element signature="e#3972#3973#0" expanded="true" />
-            <element signature="e#4015#4016#0" expanded="true" />
-            <element signature="e#4037#4038#0" expanded="true" />
-            <element signature="e#4093#4094#0" expanded="true" />
-            <element signature="e#4124#4125#0" expanded="true" />
-            <element signature="e#4161#4162#0" expanded="true" />
-            <element signature="e#4184#4185#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GED2/src/GEDInAndOut.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1836">
-          <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2520#2521#0" expanded="true" />
+            <element signature="e#2537#2538#0" expanded="true" />
+            <element signature="e#2569#2570#0" expanded="true" />
+            <element signature="e#2590#2591#0" expanded="true" />
+            <element signature="e#2619#2620#0" expanded="true" />
+            <element signature="e#2638#2639#0" expanded="true" />
+            <element signature="e#2678#2679#0" expanded="true" />
+            <element signature="e#2703#2704#0" expanded="true" />
+            <element signature="e#2735#2736#0" expanded="true" />
+            <element signature="e#2754#2755#0" expanded="true" />
+            <element signature="e#3670#3671#0" expanded="true" />
+            <element signature="e#3689#3690#0" expanded="true" />
+            <element signature="e#3728#3729#0" expanded="true" />
+            <element signature="e#3753#3754#0" expanded="true" />
+            <element signature="e#3783#3784#0" expanded="true" />
+            <element signature="e#3803#3804#0" expanded="true" />
+            <element signature="e#3844#3845#0" expanded="true" />
+            <element signature="e#3871#3872#0" expanded="true" />
           </folding>
         </state>
       </provider>

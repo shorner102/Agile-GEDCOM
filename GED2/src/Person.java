@@ -18,7 +18,6 @@ public class Person {
 	DateHelper dateHelper;
 	
 	public Person() {
-		
 	}	
 	public Person(String id) {
 		this.id = id;
@@ -84,12 +83,17 @@ public class Person {
 	public void setBirthday(String birthday, int lineNumber) {
 		this.birthday = dateHelper.parseDate(birthday);
 	    if(this.birthday == null) 
-    		errors.add("ERROR: INDIVIDUAL: US42: " + lineNumber + ": " + id + ": Birthday " + this.birthday + " is not a valid date");
+    		errors.add("ERROR: INDIVIDUAL: US42: " + lineNumber + ": " + this.id + ": Birthday " + this.birthday + " is not a valid date");
 	    else if(!dateHelper.dateBeforeCurrentDate(this.birthday))
-	    	errors.add("ERROR: INDIVIDUAL: US01: " + lineNumber + ": " + id + ": Birthday " + this.birthday + " occurs in the future");
-	    else
-	    	this.age = dateHelper.calculateAge(this.alive, this.birthday, this.death);
-	    
+	    	errors.add("ERROR: INDIVIDUAL: US01: " + lineNumber + ": " + this.id + ": Birthday " + this.birthday + " occurs in the future");
+	    else {
+			int tempAge = dateHelper.calculateAge(this.alive, this.birthday, this.death);
+			if (tempAge >= 150) {
+				errors.add("ERROR: INDIVIDUAL: US07: " + lineNumber + ": " + this.id + ": Age " + this.age + "is greater than 150");
+			} else {
+				this.age = tempAge;
+			}
+		}
 	}
 
 	public int getAge() {
