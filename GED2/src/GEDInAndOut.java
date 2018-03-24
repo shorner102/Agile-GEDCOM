@@ -16,10 +16,10 @@ public class GEDInAndOut {
 	static DateHelper dateHelper = new DateHelper();
 
 	public static void main(String[] args) {
-		 String fileName = "Family-3-24-Mar-2018-893.ged";
+		 //String fileName = "Family-3-24-Mar-2018-893.ged";
 		//String fileName = "Sydni_Horner-Project1.ged";
 		//String fileName = "hapsburgtree.ged";
-		//String fileName = "Sydni_Horner-Errors.ged";
+		String fileName = "Sydni_Horner-Errors.ged";
 
 		//File f = new File("GED2/resources/" + fileName); 
 		File f = new File("resources/" + fileName); //leave this line of code in for syd and cass
