@@ -123,7 +123,7 @@ public class Person {
 				errors.add("ERROR: INDIVIDUAL: US01: " + lineNumber + ": " + id + ": Death " + this.death + " occurs in the future");
 			if(this.birthday == null)
 				errors.add("ERROR: INDIVIDUAL: US42: " + lineNumber + ": " + id + ": Birthday " + this.birthday + " is not a valid date");
-			else if(dateHelper.birthDateBeforeDeathDate(this.birthday, this.death)) {
+			else if(!dateHelper.birthDateBeforeDeathDate(this.birthday, this.death)) {
 				this.age = dateHelper.calculateAge(this.alive, this.birthday, this.death);
 				errors.add("ERROR: INDIVIDUAL: US03: " + lineNumber + ": " + id + ": Died " + this.death + " before born " + this.birthday);
 			}

@@ -106,13 +106,13 @@ public class Family {
 		    this.divorceDate = dateHelper.parseDate(divorced);
 	    if(this.divorceDate == null)
 	    	errors.add("ERROR: FAMILY: US42: " + lineNumber + ": " + id + ": Divorce date " + this.divorceDate + " is not a valid date");
-	    else if(dateHelper.divorceDateBeforeDeathDate(this.divorceDate, husband.getDeath()))
+	    if(!dateHelper.divorceDateBeforeDeathDate(this.divorceDate, husband.getDeath()))
 	    	errors.add("ERROR: FAMILY: US06: " + lineNumber + ": " + id + ": Divorced " + this.divorceDate + " after husband's (" + husband.getId() + ") death on " + husband.getDeath());
-	    else if(dateHelper.divorceDateBeforeDeathDate(this.divorceDate, wife.getDeath()))
+	    if(!dateHelper.divorceDateBeforeDeathDate(this.divorceDate, wife.getDeath()))
 	    	errors.add("ERROR: FAMILY: US06: " + lineNumber + ": " + id + ": Divorced " + this.divorceDate + " after wife's (" + wife.getId() + ") death on " + wife.getDeath());
-	    else if(!dateHelper.dateBeforeCurrentDate(this.divorceDate))
+	    if(!dateHelper.dateBeforeCurrentDate(this.divorceDate))
 	    	errors.add("ERROR: FAMILY: US01: " + lineNumber + ": " + id + ": Divorce date " + this.divorceDate + " occurs in the future");
-	    else if(!dateHelper.marriageDateBeforeDivorceDate(this.marriageDate, this.divorceDate))
+	    if(!dateHelper.marriageDateBeforeDivorceDate(this.marriageDate, this.divorceDate))
 	    	errors.add("ERROR: FAMILY: US04: " + lineNumber + ": " + id + ": Divorced " + this.divorceDate + " before married " + this.marriageDate);
 	}
 
@@ -161,8 +161,12 @@ public class Family {
 	}
 
 	public boolean siblingsNotMarried(Person wife, Person husband) {
-		
-		return !husband.getChild().equals(wife.getChild());
+		if(husband.getChild() == null || wife.getChild() == null)
+		{
+			return true;
+		}
+		else 
+			return !husband.getChild().equals(wife.getChild());
 	}
 
 }

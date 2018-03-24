@@ -16,9 +16,10 @@ public class GEDInAndOut {
 	static DateHelper dateHelper = new DateHelper();
 
 	public static void main(String[] args) {
-		// String fileName = "proj02test.ged";
-		// String fileName = "Sydni_Horner-Project1.ged";
-		String fileName = "hapsburgtree.ged";
+		 String fileName = "Family-3-24-Mar-2018-893.ged";
+		//String fileName = "Sydni_Horner-Project1.ged";
+		//String fileName = "hapsburgtree.ged";
+		//String fileName = "Sydni_Horner-Errors.ged";
 
 		//File f = new File("GED2/resources/" + fileName); 
 		File f = new File("resources/" + fileName); //leave this line of code in for syd and cass
@@ -45,7 +46,6 @@ public class GEDInAndOut {
 				level = getLevel(line);
 				tag = getTag(line, level);
 				tag.setValid(getValid(tag));
-				// System.out.println(tag);
 				parsedTags.add(tag);
 				lineNumber++;
 			}
@@ -57,8 +57,9 @@ public class GEDInAndOut {
 			System.out.println("Error reading file '" + fileName + "'");
 
 		}
+		int i = 0;
 		try {
-			for (int i = 0; i < parsedTags.size(); i++) {
+			for (; i < parsedTags.size(); i++) {
 				if (parsedTags.get(i).isValid()) {
 					String tagName = parsedTags.get(i).getTagName();
 					switch (tagName) {
@@ -119,7 +120,7 @@ public class GEDInAndOut {
 
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e + " " + i + " " + e.getStackTrace()[0].getLineNumber()) ;
 		}
 
 		printPeople();
@@ -179,8 +180,13 @@ public class GEDInAndOut {
 		System.out.println(
 				"+-------+--------------------------------+-----------------+");
 
-		indis.forEach((k, v) -> System.out.format("| %5s | %30s | %15s |\n",
-				v.getId(), v.getName(), v.getDeath()));
+		
+		for(String i : indis.keySet()) {
+			if(!indis.get(i).isAlive())
+				System.out.format("| %5s | %30s | %15s |\n",
+						indis.get(i).getId(), indis.get(i).getName(), indis.get(i).getDeath());
+		}
+		
 
 		System.out.println(
 				"+-------+--------------------------------+-----------------+");
