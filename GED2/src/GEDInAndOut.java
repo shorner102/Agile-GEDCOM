@@ -196,8 +196,18 @@ public class GEDInAndOut {
 
 	public static void printErrors() {
 		System.out.println("\nErrors to fix in the GEDCOM files: ");
-		fams.forEach((k,v) -> printArrayList(v.getErrors()));
-		indis.forEach((k,v) -> printArrayList(v.getErrors()));
+		for(String i : fams.keySet()) {
+			for(int j = 0; j < fams.get(i).getErrors().size(); j++) {
+				System.out.println(fams.get(i).getErrors().get(j));
+			}
+		}
+		for(String i : indis.keySet()) {
+			for(int j = 0; j < indis.get(i).getErrors().size(); j++) {
+				System.out.println(indis.get(i).getErrors().get(j));
+			}
+		}
+		//fams.forEach((k,v) -> printArrayList(v.getErrors()));
+		//indis.forEach((k,v) -> printArrayList(v.getErrors()));
 	}
 
 	public static int getLevel(String line) {
