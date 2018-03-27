@@ -187,7 +187,6 @@ public class GEDInAndOut {
 
 	}
 
-
 	public static void printErrors() {
 		System.out.println("\nErrors to fix in the GEDCOM files: ");
 		fams.forEach((k,v) -> printArrayList(v.getErrors()));
