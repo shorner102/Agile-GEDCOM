@@ -126,6 +126,7 @@ public class GEDInAndOut {
 		printPeople();
 		printFamilies();
 		printDeceased();
+		printLivingSingles();
 		listUpcomingBirthdays();
 		listUpcomingAnniversaries();
 		printErrors();
@@ -192,6 +193,54 @@ public class GEDInAndOut {
 				"+-------+--------------------------------+-----------------+");
 
 	}
+	
+	public static void printLivingSingles() {
+
+		
+		System.out.println("Living Singles");
+		System.out.println(
+				"+-------+--------------------------------+-----+-------+");
+		System.out.println(
+				"|  ID   |             Name               | Age | Alive |");
+		System.out.println(
+				"+-------+--------------------------------+-----+-------+");
+
+		
+		for(String i : indis.keySet()) {
+			if(indis.get(i).isAlive() && indis.get(i).age > 30 && indis.get(i).spouse == null)
+				System.out.format("| %5s | %30s | %3d | %5s |\n",
+						indis.get(i).getId(), indis.get(i).getName(), indis.get(i).getAge(), indis.get(i).isAlive());
+		}
+		
+
+		System.out.println(
+				"+-------+--------------------------------+-----+-------+");
+
+	}
+	
+	/*public static void printLivingMarried() {
+
+		
+		System.out.println("Living Married");
+		System.out.println(
+				"+-------+--------------------------------+-----------------+");
+		System.out.println(
+				"|  ID   |             Name               |      Death      |");
+		System.out.println(
+				"+-------+--------------------------------+-----------------+");
+
+		
+		for(String i : indis.keySet()) {
+			if(!indis.get(i).isAlive())
+				System.out.format("| %5s | %30s | %15s |\n",
+						indis.get(i).getId(), indis.get(i).getName(), indis.get(i).getDeath());
+		}
+		
+
+		System.out.println(
+				"+-------+--------------------------------+-----------------+");
+
+	}*/
 
 	public static void printErrors() {
 		System.out.println("\nErrors to fix in the GEDCOM files: ");
@@ -282,5 +331,6 @@ public class GEDInAndOut {
 		}
 		System.out.println();
 	}
+	
 
 }
