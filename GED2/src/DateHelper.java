@@ -60,6 +60,7 @@ public class DateHelper {
 	
 	public boolean divorceDateBeforeDeathDate(LocalDate divorceDate, LocalDate deathDate) {
 		if (deathDate == null) {
+			System.out.println("fdsjafkldsjafkldsjafkldsa");
 			return true;
 		} else {
 			return divorceDate.isBefore(deathDate);
