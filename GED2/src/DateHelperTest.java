@@ -178,6 +178,31 @@ class DateHelperTest {
         assertFalse(dateHelper.monthDayInTheNext30Days(date));
     }
     
-    
-    
+    @Test
+    void birthBeforeDivorceNull() {
+        LocalDate birth = dateHelper.parseDate("5 AUG 1970");
+        assertTrue(dateHelper.birthBeforeDivorce(birth, null));
+    }
+
+    @Test
+    void birthBeforeDivorceFalse() {
+        LocalDate birth = dateHelper.parseDate("5 AUG 1970");
+        LocalDate divorce = dateHelper.parseDate("20 JUN 1969");
+        assertFalse(dateHelper.birthBeforeDivorce(birth, divorce));
+    }
+
+    @Test
+    void birthBeforeParentsDeathTrue() {
+        LocalDate birth = dateHelper.parseDate("5 AUG 1970");
+        LocalDate motherDeath = dateHelper.parseDate("5 AUG 1980");
+        assertTrue(dateHelper.birthBeforeParentsDeath(birth, null, motherDeath));
+    }
+
+    @Test
+    void birthBeforeParentsDeathFalse() {
+        LocalDate birth = dateHelper.parseDate("5 AUG 1970");
+        LocalDate motherDeath = dateHelper.parseDate("5 AUG 1980");
+        LocalDate fatherDeath = dateHelper.parseDate("5 AUG 1969");
+        assertFalse(dateHelper.birthBeforeParentsDeath(birth, fatherDeath, motherDeath));
+    }
 }

@@ -46,6 +46,7 @@ public class Person {
 	public void setErrors(ArrayList<String> errors) {
 		this.errors = errors;
 	}
+	public void addError(String error) { errors.add(error); }
 	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
 	}
