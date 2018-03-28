@@ -1,4 +1,5 @@
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -21,8 +22,8 @@ public class GEDInAndOut {
 		//String fileName = "hapsburgtree.ged";
 		String fileName = "Sydni_Horner-Errors.ged";
 
-		//File f = new File("GED2/resources/" + fileName); 
-		File f = new File("resources/" + fileName); //leave this line of code in for syd and cass
+		File f = new File("GED2/resources/" + fileName);
+		//File f = new File("resources/" + fileName); //leave this line of code in for syd and cass
 		System.out.println(f.getAbsolutePath());
 
 		ArrayList<Tag> parsedTags = new ArrayList<Tag>();
@@ -130,6 +131,7 @@ public class GEDInAndOut {
 		printLivingMarried();
 		listUpcomingBirthdays();
 		listUpcomingAnniversaries();
+		validateBirthBefore();
 		printErrors();
 
 	}
@@ -331,6 +333,27 @@ public class GEDInAndOut {
 					System.out.println(fams.get(i).getId() + ", " + fams.get(i).getWifeName() + " and " + fams.get(i).getHusbandName() + ", " + fams.get(i).getMarried());
 		}
 		System.out.println();
+	}
+
+	public static void validateBirthBefore() {
+		for(String i : indis.keySet()) {
+			LocalDate birth = indis.get(i).getBirthday();
+			Family fam = fams.get(indis.get(i).getChild());
+			if(fam == null || birth == null) {
+				continue;
+			}
+			LocalDate married = fam.getMarried();
+			LocalDate divorced = fam.getDivorced();
+			if(dateHelper.birthDateBeforeMarriageDate(birth, married) || !dateHelper.birthBeforeDivorce(birth, divorced)) {
+				indis.get(i).addError("ERROR: INDIVIDUAL: US08: " + i + ": Birthday is before marriage of parents");
+			}
+
+			Person mother = indis.get(fam.getWifeID());
+			Person father = indis.get(fam.getHusbandID());
+			if(!dateHelper.birthBeforeParentsDeath(birth, father.getDeath(), mother.getDeath())) {
+				indis.get(i).addError("ERROR: INDIVIDUAL: US09: " + i + ": Birthday is after death of parents");
+			}
+		}
 	}
 
 }
