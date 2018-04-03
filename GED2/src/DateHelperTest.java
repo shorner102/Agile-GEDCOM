@@ -162,7 +162,7 @@ class DateHelperTest {
     
     @Test 
     void monthDayInTheNext30Days(){
-        LocalDate date = dateHelper.parseDate("15 MAR 1950");
+        LocalDate date = dateHelper.parseDate("15 APR 1950");
         assertTrue(dateHelper.monthDayInTheNext30Days(date));
     }
     
@@ -204,5 +204,21 @@ class DateHelperTest {
         LocalDate motherDeath = dateHelper.parseDate("5 AUG 1980");
         LocalDate fatherDeath = dateHelper.parseDate("5 AUG 1969");
         assertFalse(dateHelper.birthBeforeParentsDeath(birth, fatherDeath, motherDeath));
+    }
+    
+    @Test
+    void ageAtDateTest1() {
+
+        LocalDate birth = dateHelper.parseDate("5 AUG 1970");
+        LocalDate date = dateHelper.parseDate("7 AUG 1980");
+        assertEquals(dateHelper.ageAtDate(birth, date), 10);
+    }
+    
+    @Test
+    void ageAtDateTest2() {
+
+        LocalDate birth = dateHelper.parseDate("7 AUG 1970");
+        LocalDate date = dateHelper.parseDate("5 AUG 1980");
+        assertEquals(dateHelper.ageAtDate(birth, date), 9);
     }
 }

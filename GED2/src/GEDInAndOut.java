@@ -22,8 +22,8 @@ public class GEDInAndOut {
 		//String fileName = "hapsburgtree.ged";
 		String fileName = "Sydni_Horner-Errors.ged";
 
-		File f = new File("GED2/resources/" + fileName);
-		//File f = new File("resources/" + fileName); //leave this line of code in for syd and cass
+		//File f = new File("GED2/resources/" + fileName);
+		File f = new File("resources/" + fileName); //leave this line of code in for syd and cass
 		System.out.println(f.getAbsolutePath());
 
 		ArrayList<Tag> parsedTags = new ArrayList<Tag>();
@@ -131,6 +131,7 @@ public class GEDInAndOut {
 		printLivingMarried();
 		listUpcomingBirthdays();
 		listUpcomingAnniversaries();
+		listLargeAgeDifferences();
 		validateBirthBefore();
 		printErrors();
 
@@ -333,6 +334,26 @@ public class GEDInAndOut {
 					System.out.println(fams.get(i).getId() + ", " + fams.get(i).getWifeName() + " and " + fams.get(i).getHusbandName() + ", " + fams.get(i).getMarried());
 		}
 		System.out.println();
+	}
+	 
+	public static void listLargeAgeDifferences() {
+		System.out.println("Large Age differences in Married Couples");
+		//fams.get(currFamily).setHusbandName(indis.get(hid).getName());
+		int husbandAge;
+		int wifeAge;
+		for(String i : fams.keySet()) {
+			//Get the age at marriage (this is the current age)
+			if(fams.get(i).getMarried() != null && indis.get(fams.get(i).getHusbandID()).getBirthday() != null && indis.get(fams.get(i).getWifeID()).getBirthday() != null) {
+
+				husbandAge = dateHelper.ageAtDate(indis.get(
+						fams.get(i).getHusbandID()).getBirthday(), 
+						fams.get(i).getMarried());
+				wifeAge = dateHelper.ageAtDate(indis.get(fams.get(i).getWifeID()).getBirthday(), fams.get(i).getMarried());
+				if(husbandAge * 2 <= wifeAge || wifeAge * 2 <= husbandAge)
+					System.out.println(fams.get(i).getHusbandName() + " was " + husbandAge +" and " + fams.get(i).getWifeName() + " was " + wifeAge + " when they got married");
+			}
+				
+		}
 	}
 
 	public static void validateBirthBefore() {

@@ -99,5 +99,12 @@ public class DateHelper {
 			return false;
 		}
 	}
+	
+	public int ageAtDate(LocalDate birthday, LocalDate date) {
+		if(birthday == null  || date == null)
+			return 0;
+		return Period.between(birthday, date).getYears();
+		
+	}
 
 }
