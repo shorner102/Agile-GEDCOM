@@ -22,8 +22,8 @@ public class GEDInAndOut {
 		//String fileName = "hapsburgtree.ged";
 		String fileName = "Sydni_Horner-Errors.ged";
 
-		//File f = new File("GED2/resources/" + fileName);
-		File f = new File("resources/" + fileName); //leave this line of code in for syd and cass
+		File f = new File("GED2/resources/" + fileName);
+		//File f = new File("resources/" + fileName); //leave this line of code in for syd and cass
 		System.out.println(f.getAbsolutePath());
 
 		ArrayList<Tag> parsedTags = new ArrayList<Tag>();
@@ -132,6 +132,8 @@ public class GEDInAndOut {
 		listUpcomingBirthdays();
 		listUpcomingAnniversaries();
 		listLargeAgeDifferences();
+		listRecentBirths();
+		listRecentDeaths();
 		validateBirthBefore();
 		printErrors();
 
@@ -354,6 +356,29 @@ public class GEDInAndOut {
 			}
 				
 		}
+		System.out.println();
+	}
+
+	public static void listRecentBirths() {
+		System.out.println("Births in the past 30 days:");
+		for(String i : indis.keySet()) {
+			Person ind = indis.get(i);
+			if(dateHelper.dateIsInPast30Days(ind.getBirthday())) {
+				System.out.println("Individual " + ind.getId() + ": " + ind.getName() + " was born on " + ind.getBirthday());
+			}
+		}
+		System.out.println();
+	}
+
+	public static void listRecentDeaths() {
+		System.out.println("Deaths in the past 30 days:");
+		for(String i : indis.keySet()) {
+			Person ind = indis.get(i);
+			if(dateHelper.dateIsInPast30Days(ind.getDeath())) {
+				System.out.println("Individual " + ind.getId() + ": " + ind.getName() + " died on " + ind.getDeath());
+			}
+		}
+		System.out.println();
 	}
 
 	public static void validateBirthBefore() {

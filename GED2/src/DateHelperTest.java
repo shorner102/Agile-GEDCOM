@@ -221,4 +221,21 @@ class DateHelperTest {
         LocalDate date = dateHelper.parseDate("5 AUG 1980");
         assertEquals(dateHelper.ageAtDate(birth, date), 9);
     }
+
+    @Test
+    void dateIsInPast30DaysNull() {
+        assertFalse(dateHelper.dateIsInPast30Days(null));
+    }
+
+    @Test
+    void dateIsInPast30DaysTrue() {
+        LocalDate date = LocalDate.now().minusDays(10);
+        assertTrue(dateHelper.dateIsInPast30Days(date));
+    }
+
+    @Test
+    void dateIsInPast30DaysFalse() {
+        LocalDate date = LocalDate.now().minusMonths(6);
+        assertFalse(dateHelper.dateIsInPast30Days(date));
+    }
 }
