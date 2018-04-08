@@ -107,4 +107,15 @@ public class DateHelper {
 		
 	}
 
+	public boolean dateIsInPast30Days(LocalDate date) {
+		LocalDate todayMinus30 = LocalDate.now().minusDays(30);
+		if (date == null)
+			return false;
+		if (date.isBefore(LocalDate.now()) && date.isAfter(todayMinus30)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }
