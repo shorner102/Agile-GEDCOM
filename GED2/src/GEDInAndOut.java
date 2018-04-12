@@ -412,4 +412,21 @@ public class GEDInAndOut {
 		}
 		System.out.println();
 	}
+	
+	public static void listOrphans() {
+		System.out.println("Orphans:");
+		String husband_id;
+		String wife_id;
+		int child_age;
+		for(String i : indis.keySet()) {
+			if (indis.get(i).age < 18) {
+				for(String j : fams.keySet()) {
+					
+				}
+				
+			}
+				
+		}
+		System.out.println();
+	}
 }
