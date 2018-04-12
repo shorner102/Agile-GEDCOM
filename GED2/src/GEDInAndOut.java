@@ -134,6 +134,7 @@ public class GEDInAndOut {
 		listLargeAgeDifferences();
 		listRecentBirths();
 		listRecentDeaths();
+		listMinors();
 		listMultipleBirths();
 		validateBirthBefore();
 		printErrors();
@@ -413,17 +414,11 @@ public class GEDInAndOut {
 		System.out.println();
 	}
 	
-	public static void listOrphans() {
-		System.out.println("Orphans:");
-		String husband_id;
-		String wife_id;
-		int child_age;
+	public static void listMinors() {
+		System.out.println("Minors:");
 		for(String i : indis.keySet()) {
-			if (indis.get(i).age < 18) {
-				for(String j : fams.keySet()) {
-					
-				}
-				
+			if (indis.get(i).age < 18 && indis.get(i).isAlive()) {
+				System.out.println(indis.get(i).getId() + " " + indis.get(i).getName() + ", Family ID: " + indis.get(i).getChild());
 			}
 				
 		}
