@@ -162,7 +162,7 @@ class DateHelperTest {
     
     @Test 
     void monthDayInTheNext30Days(){
-        LocalDate date = dateHelper.parseDate("15 MAR 1950");
+        LocalDate date = dateHelper.parseDate("15 APR 1950");
         assertTrue(dateHelper.monthDayInTheNext30Days(date));
     }
     
@@ -178,6 +178,64 @@ class DateHelperTest {
         assertFalse(dateHelper.monthDayInTheNext30Days(date));
     }
     
+    @Test
+    void birthBeforeDivorceNull() {
+        LocalDate birth = dateHelper.parseDate("5 AUG 1970");
+        assertTrue(dateHelper.birthBeforeDivorce(birth, null));
+    }
+
+    @Test
+    void birthBeforeDivorceFalse() {
+        LocalDate birth = dateHelper.parseDate("5 AUG 1970");
+        LocalDate divorce = dateHelper.parseDate("20 JUN 1969");
+        assertFalse(dateHelper.birthBeforeDivorce(birth, divorce));
+    }
+
+    @Test
+    void birthBeforeParentsDeathTrue() {
+        LocalDate birth = dateHelper.parseDate("5 AUG 1970");
+        LocalDate motherDeath = dateHelper.parseDate("5 AUG 1980");
+        assertTrue(dateHelper.birthBeforeParentsDeath(birth, null, motherDeath));
+    }
+
+    @Test
+    void birthBeforeParentsDeathFalse() {
+        LocalDate birth = dateHelper.parseDate("5 AUG 1970");
+        LocalDate motherDeath = dateHelper.parseDate("5 AUG 1980");
+        LocalDate fatherDeath = dateHelper.parseDate("5 AUG 1969");
+        assertFalse(dateHelper.birthBeforeParentsDeath(birth, fatherDeath, motherDeath));
+    }
     
+    @Test
+    void ageAtDateTest1() {
+
+        LocalDate birth = dateHelper.parseDate("5 AUG 1970");
+        LocalDate date = dateHelper.parseDate("7 AUG 1980");
+        assertEquals(dateHelper.ageAtDate(birth, date), 10);
+    }
     
+    @Test
+    void ageAtDateTest2() {
+
+        LocalDate birth = dateHelper.parseDate("7 AUG 1970");
+        LocalDate date = dateHelper.parseDate("5 AUG 1980");
+        assertEquals(dateHelper.ageAtDate(birth, date), 9);
+    }
+
+    @Test
+    void dateIsInPast30DaysNull() {
+        assertFalse(dateHelper.dateIsInPast30Days(null));
+    }
+
+    @Test
+    void dateIsInPast30DaysTrue() {
+        LocalDate date = LocalDate.now().minusDays(10);
+        assertTrue(dateHelper.dateIsInPast30Days(date));
+    }
+
+    @Test
+    void dateIsInPast30DaysFalse() {
+        LocalDate date = LocalDate.now().minusMonths(6);
+        assertFalse(dateHelper.dateIsInPast30Days(date));
+    }
 }
