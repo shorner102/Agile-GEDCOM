@@ -18,9 +18,9 @@ public class GEDInAndOut {
 
 	public static void main(String[] args) {
 		 //String fileName = "Family-3-24-Mar-2018-893.ged";
-		String fileName = "Sydni_Horner-Project1.ged";
+		//String fileName = "Sydni_Horner-Project1.ged";
 		//String fileName = "hapsburgtree.ged";
-		//String fileName = "Sydni_Horner-Errors.ged";
+		String fileName = "Sydni_Horner-Errors.ged";
 
 		//File f = new File("GED2/resources/" + fileName);
 		File f = new File("resources/" + fileName); //leave this line of code in for syd and cass
@@ -134,6 +134,7 @@ public class GEDInAndOut {
 		listLargeAgeDifferences();
 		listRecentBirths();
 		listRecentDeaths();
+		listOrphans();
 		listMinors();
 		listMultipleBirths();
 		validateBirthBefore();
@@ -409,6 +410,23 @@ public class GEDInAndOut {
 		for(String i : fams.keySet()) {
 			if(fams.get(i).children != null && fams.get(i).children.size() > 1) {
 				System.out.println("Family " + fams.get(i).id);
+			}
+		}
+		System.out.println();
+	}
+	
+	
+	public static void listOrphans() {
+		
+		System.out.println("Orphans: ");
+		for(String i : indis.keySet()) {
+			if(indis.get(i).age < 18 && indis.get(i).isAlive()) {
+				Family f = getFamily(indis.get(i).getChild());
+				Person mother = indis.get(f.getWifeID());
+				Person father = indis.get(f.getHusbandID());
+				if(!mother.alive && !father.alive)
+					System.out.println(indis.get(i).getId() + " " + indis.get(i).getName() + ", Family ID: " + indis.get(i).getChild());
+				
 			}
 		}
 		System.out.println();
